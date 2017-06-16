@@ -15,6 +15,7 @@
   <tbody>
     <% @lists.each do |list| %>
       <tr>
+        <td><%= image_tag (list.image.medium) %></td>
         <td><%= list.title %></td>
         <td><%= list.description %></td>
         <td><%= list.price %></td>

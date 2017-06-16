@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'fog-google'
+gem 'google-api-client', '~> 0.8.6'
+gem 'mini_magick', '~> 4.7', '>= 4.7.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'carrierwave', '~> 1.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
