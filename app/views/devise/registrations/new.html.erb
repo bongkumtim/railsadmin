@@ -1,3 +1,4 @@
+<center>
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -28,9 +29,9 @@
     <%= f.text_field :business_type %>
   </div>
 
-   <div class='field'>
-  <%= form.file_field :image %>
-  </div>
+   <div class='field'><br />
+  <%= f.file_field :image %>
+  </div><br />
 
   <div class="field">
     <%= f.label :email %><br />
@@ -56,3 +57,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</center>

@@ -1,21 +1,99 @@
 <p id="notice"><%= notice %></p>
+    <div class="container">
 
-<%= image_tag (@list.image.medium) %>
+        <div class="row">
 
-<p>
-  <strong>Title:</strong>
-  <%= @list.title %>
-</p>
+            <div class="col-md-3">
+                <p class="lead">Merchant Name</p>
+                <div class="list-group">
+                    <a href="/index" class="list-group-item">Find All Merchant</a>
+                    <a href="/index" class="list-group-item">Special Offer</a>
+                    <a href="/" class="list-group-item">Find Near Me(5KM)</a>
+                </div>
+            </div>
+            <div class="col-md-9">
 
-<p>
-  <strong>Description:</strong>
-  <%= @list.description %>
-</p>
+                <div class="thumbnail">
+                    <%= image_tag (@list.image.url),:size=> '800x300', :class=> "img-responsive" %>
+                    <div class="caption-full">
+                        <h4 class="pull-right">RM <%= @list.price %></h4>
+                        <h4><%= @list.title %>
+                        </h4>
+                        <p><%= @list.description %></p>
+                        <p><%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %> | <%= link_to 'Destroy', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @list.price %>
-</p>
+                <div class="well">
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+                    <div class="text-right">
+                        <a class="btn btn-success">Leave a Review</a>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">10 days ago</span>
+                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">12 days ago</span>
+                            <p>I've alredy ordered another one!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">15 days ago</span>
+                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+
