@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
+
 gem 'fog-google'
 gem 'google-api-client', '~> 0.8.6'
 gem 'mini_magick', '~> 4.7', '>= 4.7.1'

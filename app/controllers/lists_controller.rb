@@ -3,12 +3,17 @@ class ListsController < ApplicationController
 
 
   def index
-    @lists = List.all
+    @lists = List.all.order("created_at DESC")
   end
 
 
   def show
-    @reviews = Review.where(list_id: @list.id).order("created_at DESC")
+     @reviews = Review.where(list_id: @list.id).order("created_at DESC")
+     if @reviews.blank?
+      @avg = 0
+    else
+      @avg = @reviews.average(:rating)
+    end
   end
 
   
@@ -63,7 +68,6 @@ class ListsController < ApplicationController
     def set_list
       @list = List.find(params[:id])
     end
-
     
     def list_params
       params.require(:list).permit(:title, :description, :price, :image)

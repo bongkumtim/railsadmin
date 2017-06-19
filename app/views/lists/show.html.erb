@@ -23,24 +23,16 @@
                         <p><%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %> | <%= link_to 'Destroy', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
                     </div>
-                    <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
-                        </p>
-                    </div>
                 </div>
 
                 <div class="well">
 
-                    <div class="btn-group">
-                       <%= link_to 'Leave a Reviews', new_list_review_path(@list), :class=> "btn" %>
-                    </div>
+                   
+                       <%= link_to 'Leave a Reviews', new_list_review_path(@list), :class=> "btn btn-primary pull-right" %>
+                   
+
+                    <h5><strong>Average Rating  </strong></h5> <div class="star-rating" data-score= <%= @avg %>></div>
+                        <p><%= @reviews.size %> Reviews</p>
 
                     <hr>
             <% if @reviews.blank? %>
@@ -56,14 +48,7 @@
                 <% @reviews.each do |review| %>
                     <div class="row">
                         <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                            <p><%= review.rating %></p>
+                            <div class="star-rating" data-score= <%= review.rating %>></div>
                             <p><%= review.comment %></p>
                         </div>
                     </div>
@@ -80,5 +65,15 @@
 
     </div>
     </div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
 
 
