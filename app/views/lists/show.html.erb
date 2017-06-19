@@ -20,8 +20,11 @@
                         <h4><%= @list.title %>
                         </h4>
                         <p><%= @list.description %></p>
-                        <p><%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %> | <%= link_to 'Destroy', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                        <% if current_user == @list.user %>
+                        <p><%= link_to 'Edit', edit_list_path(@list) %> | <%= link_to 'Destroy', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                        <% else %>
+                        <p><%= link_to 'Back', lists_path %></p>
+                        <% end %>
                     </div>
                 </div>
 
