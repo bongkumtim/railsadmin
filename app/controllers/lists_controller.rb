@@ -8,6 +8,7 @@ class ListsController < ApplicationController
 
 
   def show
+    @reviews = Review.where(list_id: @list.id).order("created_at DESC")
   end
 
   

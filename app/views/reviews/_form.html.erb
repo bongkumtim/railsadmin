@@ -1,10 +1,10 @@
-<%= form_for(review) do |f| %>
-  <% if review.errors.any? %>
+<%= form_for([@list, @review]) do |f| %>
+  <% if @review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
       <ul>
-      <% review.errors.full_messages.each do |message| %>
+      <% @review.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :rating %>
+    <%= f.label :rating %><br />
     <%= f.number_field :rating %>
   </div>
 
   <div class="field">
-    <%= f.label :comment %>
+    <%= f.label :comment %><br />
     <%= f.text_area :comment %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
