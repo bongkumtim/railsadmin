@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   
   get '/index' => 'lists#index'
+  get '/welcome' => 'lists#welcome'
 end
