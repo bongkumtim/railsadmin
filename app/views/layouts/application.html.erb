@@ -8,9 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  
+
   <% if user_signed_in? %>
+
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,8 +45,20 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
+     <!-- /.container -->
     </nav>
+
+  <body>
     <%= yield %>
   </body>
+
+<br/>
+<div class="copy-right-main">
+    <div class="container">
+        <div class="copy-right">
+            <p>© 2017 All rights reserved | Design by  MeLAB Global Sdn Bhd</p>
+        </div>
+    
+    </div>
+</div>
 </html>
