@@ -16,7 +16,7 @@
                 <div class="thumbnail">
                     <%= image_tag (@list.image.url),:size=> '800x300', :class=> "img-responsive" if @list.image?  %>
                     <div class="caption-full">
-                        <h4 class="pull-right">RM <%= sprintf('%.2f', @list.price) %></h4>
+                        <h4 class="pull-right">RM <%= sprintf('%.2f', @list.price) if @list.price? %></h4>
                         <h4><%= @list.title %>
                         </h4>
                         <p><%= @list.description %></p>
