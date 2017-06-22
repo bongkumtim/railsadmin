@@ -616,7 +616,48 @@ h2.resp-accordion {
 
 /*--features end here--*/
 /*--clients start here--*/
-
+.features {
+  padding: 1em 0em 3em 0em;
+}
+.fea-top h3 {
+  font-size: 2.5em;
+  color: #B08A5B;
+  margin: 0;
+  padding: 0em 0 0.3em 0;
+ font-family: 'Quicksand-Regular';
+}
+.fea-top p {
+  color: #999;
+  font-size: 0.9em;
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.6em;
+}
+.fea-top {
+  padding: 0em 0em 4em 0em;
+  text-align: center;
+}
+.feature-bott1 {
+  padding: 0em 0em 2.5em 0em;
+}
+.fea-text h4 {
+  font-size: 1.4em;
+  font-weight: 500;
+   margin: 0em 0em 0.8em 0em;
+  font-family: 'Quicksand-Regular';
+}
+.fea-text h4 a{
+  color: #B08A5B;
+}
+.fea-text h4 a:hover{
+  color:#000; 
+  text-decoration:none;
+}
+.fea-text p {
+ color: #999;
+  font-size: 0.9em;
+  line-height: 1.8em;
+}
 .input-main {
   border-radius: 4px;
   background-color: #fff;

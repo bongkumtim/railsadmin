@@ -10,27 +10,10 @@
 				<div class="header-right">
 			<!---- script-nav ---->
 				<div class="top-nav-right">
-					<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
-						    <div id="loginBox">                
-						        <form id="loginForm">
-						                <fieldset id="body">
-						                	<fieldset>
-						                          <label for="email">Email Address</label>
-						                          <input type="text" name="email" id="email">
-						                    </fieldset>
-						                    <fieldset>
-						                            <label for="password">Password</label>
-						                            <input type="password" name="password" id="password">
-						                     </fieldset>
-						                    <input type="submit" id="login" value="Sign in">
-						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
-						            	</fieldset>
-						            <span><a href="#">Forgot your password?</a></span>
-							 </form>
-				        </div>
+					<div id="loginContainer"><%= link_to 'Login', new_user_session_path, :class => "btn btn-success btn-lg"%>
+					</div>
+		         	<div class="clearfix"> </div>
 				</div>
-		         <div class="clearfix"> </div>
-			</div>
 		 </div>
 		 <div class="clearfix"> </div>
 	  </div>
@@ -160,7 +143,7 @@
 							</div>
 							<div class="col-md-7 fea-text">
 								<h4>Simple Accounting App</h4>
-								<p>Build by business owner for micro enterprise. Simple and easy to use and the best part is, comply with best accounting practise and can be use for taxation and loan submision.</p>
+								<p>Build by business owner for micro enterprise. Simple and easy to use and the best part is, comply with best accounting practise and can be use for taxation and loan submision.</p><br />
 							 </div>
 						  <div class="clearfix"> </div>
 						</div>
@@ -170,7 +153,7 @@
 							</div>
 							<div class="col-md-7 fea-text">
 								<h4>Optional Services</h4>
-								<p>Our partner a certified tax accountant firm, can help and provide services for GST and tax submission to any merchant for a small fee.</p>
+								<p>Our partner a certified tax accountant firm, can help and provide services for GST and tax submission to any merchant for a small fee.</p><br />
 							</div>
 						</div>
 					   <div class="clearfix"> </div>
@@ -182,7 +165,7 @@
 							</div>
 							<div class="col-md-7 fea-text">
 								<h4>Go Online and Mobile too!!!</h4>
-								<p>Join us as our platform is free, make your business remain relevant and to be able to profit in to digital economy! </p>
+								<p>Join us as our platform is free, make your business remain relevant and to be able to profit in to digital economy! </p><br />
 							</div>
 						  <div class="clearfix"> </div>
 						</div>
@@ -192,7 +175,7 @@
 							</div>
 							<div class="col-md-7 fea-text">
 								<h4>Complete Payment Gateway</h4>
-								<p>We offer you ready payment system that can accept VISA & Master and if you are Malaysian merchant, you can use our services to accept all bank FPX transaction. Making your business grow faster!</p>
+								<p>We offer you ready payment system that can accept VISA & Master and if you are Malaysian merchant, you can use our services to accept all bank FPX transaction. Making your business grow faster!</p><br />
 							</div>
 						</div>
 					   <div class="clearfix"> </div>
