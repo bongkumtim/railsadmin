@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  root 'lists#index'
+  authenticated :user do
+  	root 'lists#index', as: "authenticated_root"
+  end
+
+  root 'lists#welcome'
 
   resources :lists do
   	resources :reviews, except: [:show, :index]

@@ -17,14 +17,7 @@ a:hover {
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
 }
-@font-face {
-    font-family: 'Quicksand-Regular';
-    src:url(../fonts/Quicksand-Regular.ttf) format('truetype');
-}
-@font-face {
-	font-family: 'Roboto-Regular';
-    src:url(../fonts/Roboto-Regular.ttf) format('truetype');
-}
+
 /*--header start here--*/
 .logo {
   float: left;
@@ -34,11 +27,7 @@ a:hover {
   float: right;
   width: 70%;
 }
-.top-nav {
-  float: left;
-  width: 82%;
-  text-align: right;
-}
+
 .top-nav-right {
   float: right;
   width: 15%;
@@ -56,49 +45,27 @@ a:hover {
 .logo h1 a:hover{
   text-decoration:none;
 }
-span.menu {
-  display: none;
-}
-.header-main {
-  padding: 1em 0em 1em 0em;
-}
-.top-nav ul {
-  list-style: none;
-  padding: 0.6em 0em 0em 0em;
-}
-.top-nav ul li {
-  display: inline-block;
-}
-.top-nav ul li a{
-	color: #fff;
-	text-decoration: none;
-	font-size: 1.05em;
-	padding:0.5em 1em;
-	position:relative;
-	z-index: 999;
-}
-.top-nav ul li a:hover{
-	color:#fff;
-}
+
 .banner {
-  background: url(../assets/apple1.png)no-repeat;
+  background: url(../assets/apple1.jpg)no-repeat;
   min-height: 855px;
   background-size: cover;
+  margin: -1.3em;
 }
 .banner-bottom {
   padding: 15em 0em 0em 0em;
   text-align: center;
 }
 .banner-bottom h4 {
-  font-size: 1.25em;
+  font-size: 1.85em;
   font-weight: 400;
   color: #fff;
   margin: 0em 0em 0.5em 0em;
   font-family: 'Quicksand-Regular';
 }
 .banner-bottom h3 {
-  font-size: 2.3em;
-  font-weight: 400;
+  font-size: 2.95em;
+  font-weight: 600;
   color: #fff;
   font-family: 'Quicksand-Regular';
 }
@@ -396,6 +363,7 @@ span.glyphicon.glyphicon-apple {
     padding: 0em 0em 3em 0em;
 }
 .services-top h3 {
+
   font-size: 2.5em;
   font-weight: 400;
   color: #B08A5B;
@@ -537,14 +505,7 @@ span.devide-line {
 .changer-left-fvr{
 	top:32.7em;
 }
-.changer-left:before,.changer-left-snd:before,.changer-left-trd:before,.changer-left-fvr:before{
-	content: url(../images/bubble.png)no-repeat 0px 0px;
-	position: relative;
-	right: -5em;
-	  width: 15px;
-  height: 15px;
-  display: inline-block;
-}
+
 .changer-left:before{
 	top: 4em;
 }
@@ -592,27 +553,7 @@ span.devide-line {
   border-radius: 95px;
 }
 /*--changer-ends-Here--*/
-/*--gallery--*/
-.gallery-top{
-	text-align:center;
-}
-.gallery-top h3{
-	font-size: 2.5em;
-	color: #B08A5B;
-	margin: 0;
-	padding: 0em 0 0.3em 0;
-	font-family: 'Quicksand-Regular';
-}
-.gallery-top p{
-	color: #999;
-  font-size: 0.9em;
-  width: 70%;
-  margin: 0 auto;
-  line-height: 1.8em;
-}
-.gallery {
-  padding: 1em 0;
-}
+
 /******** SAP ************/
 .sap_tabs{
 	clear:both;
@@ -673,174 +614,9 @@ h2.resp-accordion {
    display: block;
 }
 
-.tab_img{
-	padding:1em 0em;
-}
-.img-top {	
-	  position: relative;
-}
-.link-top{
-	position: absolute;
- top: 0%;
-  text-align: center;
-  width: 90%;
-  background: rgba(0, 0, 0, 0.49);
-  height: 100%;
-  padding: 5em 0 0;
-  display: none;
-}
-i.link {
-  background: url(../images/eye.png)no-repeat 0px 0px;
-  width: 35px;
-  height: 27px;
-  display: inline-block;
-}
-.img-top:hover .link-top{
-	display: block;
-}
-/*--//gallery--*/
-/*--features start here--*/
-.features {
-  padding: 1em 0em 3em 0em;
-}
-.fea-top h3 {
-  font-size: 2.5em;
-  color: #B08A5B;
-  margin: 0;
-  padding: 0em 0 0.3em 0;
- font-family: 'Quicksand-Regular';
-}
-.fea-top p {
-  color: #999;
-  font-size: 0.9em;
-  width: 70%;
-  margin: 0 auto;
-  line-height: 1.6em;
-}
-.fea-top {
-  padding: 0em 0em 4em 0em;
-  text-align: center;
-}
-.feature-bott1 {
-  padding: 0em 0em 2.5em 0em;
-}
-.fea-text h4 {
-  font-size: 1.4em;
-  font-weight: 500;
-   margin: 0em 0em 0.8em 0em;
-  font-family: 'Quicksand-Regular';
-}
-.fea-text h4 a{
-  color: #B08A5B;
-}
-.fea-text h4 a:hover{
-  color:#000;	
-  text-decoration:none;
-}
-.fea-text p {
- color: #999;
-  font-size: 0.9em;
-  line-height: 1.8em;
-}
-.client {
-  padding: 2em 0em 3em 0em;
-  text-align: center;
-}
 /*--features end here--*/
 /*--clients start here--*/
-.clients-main p {
-  color: #999;
-  font-size: 0.9em;
-  line-height: 1.6em;
-  margin: 0em 0em 0.5em 0em;
-}
-.clients-main h4 {
-  font-size: 1.45em;
-  font-weight: 500;
-  margin: 0.4em 0em 0.4em 0em;
-  color: #B08A5B;
-  font-family: 'Quicksand-Regular';
-}
-.clients-main h5 {
-  font-size: 1em;
-  font-weight: 500;
-  margin: 0em 0em 0.4em 0em;
-  color: #000;
-}
-.clients-main img {
-  margin: 0 auto;
-  border-radius: 95px;
-}
-/*--clients end here--*/
-/*--contact start here--*/
-.contact-main {
-  width: 60%;
-  margin: 0 auto;
-}
-.contact {
-  background: #B08A5B;
-  padding: 3em 0em 3em 0em;
-  text-align:center;
-}
-.contact-main h3 {
-  font-size: 2.5em;
-  font-weight: 400;
-  color: #fff;
-  margin: 0em 0em 1em 0em;
-  font-family: 'Quicksand-Regular';
-}
-.contact-main input[type="text"] {
-  font-size: 1em;
-  font-weight: 400;
-  color: #989898;
-  padding: 0.5em 0em 0.5em 0.5em;
-  width: 93%;
-  outline: none;
-  display: inline-block;
-  border: none;
-  border-radius: 4px;
-}
-.contact-main textarea {
-  font-size: 1em;
-  font-weight: 400;
-  color: #989898;
-  width: 100%;
-  height: 10em;
-  resize: none;
-  outline: none;
-  border-radius: 4px;
-  border: none;
-  padding: 0.8em 1.3em 0.5em 1.3em;
-}
-.contact-main input[type="submit"] {
-  font-size: 1em;
-  font-weight: 400;
-  color: #fff;
-  padding: 0.4em 0.5em;
-  width: 15%;
-  margin: 1em auto 0em;
-  outline: none;
-  display: block;
-  background: #804600;
-  border: none;
-  border-radius: 4px;
-}
-.contact-main input[type="submit"]:hover {
-	background: #fff;
-	color:#000;
-	transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-}
-.map {
-   background:rgba(153, 153, 153, 0.27);
-}
-.map iframe {
-  width: 100%;
-  height: 300px;
-  border: none;
-}
+
 .input-main {
   border-radius: 4px;
   background-color: #fff;
@@ -901,20 +677,7 @@ span.glyphicon.glyphicon-phone {
   background: #000;
   padding: 2em 0em 2em 0em;
 }
-#toTop {
-  display: none;
-  text-decoration: none;
-  position: fixed;
-  bottom: 0px;
-  right: 10px;
-  overflow: hidden;
-  width: 48px;
-  height: 48px;
-  border: none;
-  text-indent: 100%;
-  background-size: 35px;
-  background: url(../images/arrow.png) no-repeat 0px 0px;
-}
+
 /*--footer end here--*/
 /*--media quries start here--*/
 @media(max-width:1440px){
@@ -967,7 +730,7 @@ span.glyphicon.glyphicon-phone {
   padding: 2.5em 0em;
 }
 .services {
-  padding: 0em 0em 2em 0em;
+  padding: 18em 0em 2em 0em;
 }
 .changer {
   min-height: 800px;
@@ -1095,13 +858,6 @@ span.menu {
 .changer-left h4, .changer-left-snd h4, .changer-left-trd h4, .changer-left-fvr h4 {
   font-size: 1.1em;
 }
-.gallery-top h3 {
-  font-size: 2.2em;
-}
-.gallery-top p {
-  font-size: 0.93em;
-  width: 100%;
-}
 .resp-tab-item {
   font-size: 0.75em;
   padding: 5px 16px;
@@ -1135,25 +891,7 @@ span.menu {
   float: left;
   width: 50%;
 }
-.clients-main p {
-  font-size: 1em;
-}
-.client {
-  padding: 0em 0em 0em 0em;
-}
-.clients-main h4 {
-  font-size: 1.2em;
-}
-.contact-main h3 {
-  font-size: 2.2em;
-  margin: 0em 0em 0.5em 0em;
-}
-.contact-main {
-  width: 80%;
-}
-.contact-main input[type="submit"] {
-  font-size: 0.9em;
-}
+
 .banner-bottom {
   padding: 8em 0em 0em 0em;
 }
@@ -1311,7 +1049,7 @@ span.menu img {
   padding: 0em 0em 0.8em 0em;
 }
 .services-top {
-  padding: 0em 0em 2em 0em;
+  padding: 8em 0em 2em 0em;
 }
 .changer-right, .changer-right-snd, .changer-right-trd, .changer-right-fvr {
   left: 15em;
@@ -1382,22 +1120,7 @@ span.menu img {
   text-align: center;
   margin: 0em 0em 1em 0em;
 }
-.contact-main {
-  width: 100%;
-}
-.contact-main input[type="text"] {
-  width: 90%;
-}
-.contact-main h3 {
-  font-size: 2em;
-}
-.contact {
-  background: #B08A5B;
-  padding: 1.7em 0em 1.7em 0em;
-}
-.map iframe {
-  height: 210px;
-}
+
 .copy-right-main {
   padding: 1em 0em 1em 0em;
 }
@@ -1475,6 +1198,7 @@ span.glyphicon.glyphicon-apple {
   font-size: 0.95em;
 }
 .services-top h3 {
+  padding: 8em;
   font-size: 1.7em;
 }
 .services-top p {
@@ -1514,12 +1238,7 @@ span.glyphicon.glyphicon-apple {
 .changer-left h4, .changer-left-snd h4, .changer-left-trd h4, .changer-left-fvr h4 {
   font-size: 0.95em;
 }
-.gallery-top h3 {
-  font-size: 1.7em;
-}
-.gallery-top p {
-  font-size: 0.8em;
-}
+
 .resp-tab-item {
   font-size: 0.69em;
   padding: 5px 5px;
@@ -1620,15 +1339,6 @@ span.devide-line {
 .resp-tabs-list {
   padding: 1em 0px 1em;
 }
-#loginForm {
-  width: 250px;
-}
-#loginForm input {
-  padding: 3px;
-}
-#loginForm #login {
-  font-size: 0.8em;
-  padding: 6px 15px;
-}
+
 }
 /*--media quries end here--*/
