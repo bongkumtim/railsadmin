@@ -1,0 +1,40 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :card_collection_amount %><br />
+    RM <%= f.text_field :card_collection_amount %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :card_collection_description %>
+    <p> Received from whom, bank and for, *eg: Received from Miss Siti , CIMB for laptop servicing</p>
+    Received:<%= f.text_field :card_collection_description %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :card_charges %>
+    <%= f.number_field :card_charges %>%
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :Payment_Voucher %> * For Accounting Record Purposes
+    <%= f.file_field :image %>
+  </div>
+  <br />
+
+    <div class="actions">
+    <%= f.submit %>  | <%= link_to 'Back', accounts_path %>
+  </div>
+<% end %>
+

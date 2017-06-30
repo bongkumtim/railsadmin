@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  opening_cash: 9.99
+  opening_bank: 9.99
+  user_id: 1
+  bank: MyString
+  image: 
+  cash_collection_amount: 9.99
+  cash_collection_description: MyString
+  cash_purchase_amount: 9.99
+  cash_purchase_description: MyString
+  credit_purchase_amount: 9.99
+  credit_purchase_description: MyString
+  creditor_name: MyString
+  payment_creditor_cash_amount: 9.99
+  payment_creditor_cash_description: MyString
+  payment_creditor_bank_amount: 9.99
+  payment_creditor_bank_description: MyString
+  card_collection_amount: 9.99
+  card_collection_description: MyString
+  card_charges: 1
+  bank_transfer_amount: 9.99
+  bank_transfer_description: MyString
+  fpx_collection_amount: 9.99
+  fpx_collection_description: MyString
+  fpx_charges: 9.99
+
+two:
+  opening_cash: 9.99
+  opening_bank: 9.99
+  user_id: 1
+  bank: MyString
+  image: 
+  cash_collection_amount: 9.99
+  cash_collection_description: MyString
+  cash_purchase_amount: 9.99
+  cash_purchase_description: MyString
+  credit_purchase_amount: 9.99
+  credit_purchase_description: MyString
+  creditor_name: MyString
+  payment_creditor_cash_amount: 9.99
+  payment_creditor_cash_description: MyString
+  payment_creditor_bank_amount: 9.99
+  payment_creditor_bank_description: MyString
+  card_collection_amount: 9.99
+  card_collection_description: MyString
+  card_charges: 1
+  bank_transfer_amount: 9.99
+  bank_transfer_description: MyString
+  fpx_collection_amount: 9.99
+  fpx_collection_description: MyString
+  fpx_charges: 9.99

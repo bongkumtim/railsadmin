@@ -1,0 +1,67 @@
+<h1>Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Opening cash</th>
+      <th>Opening bank</th>
+      <th>User</th>
+      <th>Bank</th>
+      <th>Image</th>
+      <th>Cash collection amount</th>
+      <th>Cash collection description</th>
+      <th>Cash purchase amount</th>
+      <th>Cash purchase description</th>
+      <th>Credit purchase amount</th>
+      <th>Credit purchase description</th>
+      <th>Creditor name</th>
+      <th>Payment creditor cash amount</th>
+      <th>Payment creditor cash description</th>
+      <th>Payment creditor bank amount</th>
+      <th>Payment creditor bank description</th>
+      <th>Card collection amount</th>
+      <th>Card collection description</th>
+      <th>Card charges</th>
+      <th>Bank transfer amount</th>
+      <th>Bank transfer description</th>
+      <th>Fpx collection amount</th>
+      <th>Fpx collection description</th>
+      <th>Fpx charges</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.opening_cash %></td>
+        <td><%= account.opening_bank %></td>
+        <td><%= account.user_id %></td>
+        <td><%= account.bank %></td>
+        <td><%= account.image %></td>
+        <td><%= account.cash_collection_amount %></td>
+        <td><%= account.cash_collection_description %></td>
+        <td><%= account.cash_purchase_amount %></td>
+        <td><%= account.cash_purchase_description %></td>
+        <td><%= account.credit_purchase_amount %></td>
+        <td><%= account.credit_purchase_description %></td>
+        <td><%= account.creditor_name %></td>
+        <td><%= account.payment_creditor_cash_amount %></td>
+        <td><%= account.payment_creditor_cash_description %></td>
+        <td><%= account.payment_creditor_bank_amount %></td>
+        <td><%= account.payment_creditor_bank_description %></td>
+        <td><%= account.card_collection_amount %></td>
+        <td><%= account.card_collection_description %></td>
+        <td><%= account.card_charges %></td>
+        <td><%= account.bank_transfer_amount %></td>
+        <td><%= account.bank_transfer_description %></td>
+        <td><%= account.fpx_collection_amount %></td>
+        <td><%= account.fpx_collection_description %></td>
+        <td><%= account.fpx_charges %></td>
+        <td><%= link_to 'Show', account %></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

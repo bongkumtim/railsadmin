@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Cash-Current Asset Balance Sheet</h1>  | <%= link_to 'Back', accounts_path %>
+  <p>This table show the available cash on hand and also the transaction</p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Opening Balance</th>
+        <th>Debit</th>
+        <th>Debit Description</th>
+        <th>Credit</th>
+        <th>Credit Description</th>
+        <th>Balance Amount</th>
+      </tr>
+    </thead>
+<% @accounts.each do |account| %>
+    <tbody>
+      <tr>
+        <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= number_to_currency(account.opening_cash) %></td>
+        <td><%= number_to_currency(account.cash_collection_amount) %></td>
+        <td><%= account.open_cash_description %><%= account.cash_collection_description %></td>
+        <td><%= number_to_currency(account.cash_purchase_amount) %><%= number_to_currency(account.payment_creditor_cash_amount) %> </td>
+        <td><%= (account.cash_purchase_description)%><%= account.payment_creditor_cash_description %></td>
+        <% end %>
+        <td><%= number_to_currency(@total_cash) %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Bank-Current Asset Balance Sheet</h1> | <%= link_to 'Back', accounts_path %>
+  <p>This table show the available cash in the Bank and also the transaction</p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Opening Balance</th>
+        <th>Debit</th>
+        <th>Debit Description</th>
+        <th>Credit</th>
+        <th>Credit Description</th>
+        <th>Balance Amount</th>
+      </tr>
+    </thead>
+<% @accounts.each do |account| %>
+    <tbody>
+      <tr>
+        <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= number_to_currency(account.opening_bank) %></td>
+        <td><%= number_to_currency(account.bank_transfer_amount) %><%= number_to_currency(account.fpx_collection_amount) %><%= number_to_currency(account.card_collection_amount) %></td>
+        <td><%= account.bank %><%= (account.bank_transfer_description) %><%= (account.fpx_collection_description) %><%= (account.card_collection_description) %></td>
+        <td><%= number_to_currency(account.payment_creditor_bank_amount) %></td>
+        <td><%= (account.payment_creditor_bank_description) %></td>
+        <% end %>
+        <td><%= number_to_currency(@total_bank) %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>

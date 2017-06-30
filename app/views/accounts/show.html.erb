@@ -1,0 +1,124 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Opening cash:</strong>
+  <%= @account.opening_cash %>
+</p>
+
+<p>
+  <strong>Opening bank:</strong>
+  <%= @account.opening_bank %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @account.user_id %>
+</p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @account.bank %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@account.image.medium) if @account.image? %>
+</p>
+
+<p>
+  <strong>Cash collection amount:</strong>
+  <%= @account.cash_collection_amount %>
+</p>
+
+<p>
+  <strong>Cash collection description:</strong>
+  <%= @account.cash_collection_description %>
+</p>
+
+<p>
+  <strong>Cash purchase amount:</strong>
+  <%= @account.cash_purchase_amount %>
+</p>
+
+<p>
+  <strong>Cash purchase description:</strong>
+  <%= @account.cash_purchase_description %>
+</p>
+
+<p>
+  <strong>Credit purchase amount:</strong>
+  <%= @account.credit_purchase_amount %>
+</p>
+
+<p>
+  <strong>Credit purchase description:</strong>
+  <%= @account.credit_purchase_description %>
+</p>
+
+<p>
+  <strong>Creditor name:</strong>
+  <%= @account.creditor_name %>
+</p>
+
+<p>
+  <strong>Payment creditor cash amount:</strong>
+  <%= @account.payment_creditor_cash_amount %>
+</p>
+
+<p>
+  <strong>Payment creditor cash description:</strong>
+  <%= @account.payment_creditor_cash_description %>
+</p>
+
+<p>
+  <strong>Payment creditor bank amount:</strong>
+  <%= @account.payment_creditor_bank_amount %>
+</p>
+
+<p>
+  <strong>Payment creditor bank description:</strong>
+  <%= @account.payment_creditor_bank_description %>
+</p>
+
+<p>
+  <strong>Card collection amount:</strong>
+  <%= @account.card_collection_amount %>
+</p>
+
+<p>
+  <strong>Card collection description:</strong>
+  <%= @account.card_collection_description %>
+</p>
+
+<p>
+  <strong>Card charges:</strong>
+  <%= @account.card_charges %>
+</p>
+
+<p>
+  <strong>Bank transfer amount:</strong>
+  <%= @account.bank_transfer_amount %>
+</p>
+
+<p>
+  <strong>Bank transfer description:</strong>
+  <%= @account.bank_transfer_description %>
+</p>
+
+<p>
+  <strong>Fpx collection amount:</strong>
+  <%= @account.fpx_collection_amount %>
+</p>
+
+<p>
+  <strong>Fpx collection description:</strong>
+  <%= @account.fpx_collection_description %>
+</p>
+
+<p>
+  <strong>Fpx charges:</strong>
+  <%= @account.fpx_charges %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

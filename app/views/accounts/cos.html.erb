@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Purchase - Cost of Sales - Profit & Loss</h1>  | <%= link_to 'Back', accounts_path %>
+  <p>This table show stock purchases</p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Debit</th>
+        <th>Debit Description</th>
+        <th>Balance Amount</th>
+      </tr>
+    </thead>
+<% @accounts.each do |account| %>
+    <tbody>
+      <tr>
+        <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= number_to_currency(account.cash_purchase_amount) %><%= number_to_currency(account.credit_purchase_amount) %></td>
+        <td><%= account.cash_purchase_description %><%= account.credit_purchase_description %></td>
+        <% end %>
+        <td><%= number_to_currency(@total_purchase) %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Sales - Profit & Loss</h1> | <%= link_to 'Back', accounts_path %>
+  <p>This table show the available cash in the Bank and also the transaction</p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Credit</th>
+        <th>Credit Description</th>
+        <th>Balance Amount</th>
+      </tr>
+    </thead>
+<% @accounts.each do |account| %>
+    <tbody>
+      <tr>
+        <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= number_to_currency(account.cash_collection_amount) %><%= number_to_currency(account.fpx_collection_amount) %><%= number_to_currency(account.card_collection_amount) %><%= number_to_currency(account.bank_transfer_amount) %></td>
+        <td><%= (account.cash_collection_description) %><%= (account.card_collection_description) %><%= (account.bank_transfer_description) %><%= (account.fpx_collection_description) %></td>
+        <% end %>
+        <td><%= number_to_currency(@total_sales) %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>

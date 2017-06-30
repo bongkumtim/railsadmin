@@ -1,0 +1,29 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :opening_cash %><br />
+    RM <%= f.text_field :opening_cash %> *Petty cash only
+  </div>
+
+  <br />
+  <select name="account[open_cash_description]">
+  <option value="Petty Cash">&nbsp;&nbsp;Petty Cash</option>
+</select>
+
+  <div class="actions">
+    <br /><%= f.submit %> | <%= link_to 'Back', accounts_path %>
+  </div>
+<% end %>
+
+

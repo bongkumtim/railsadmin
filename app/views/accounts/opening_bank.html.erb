@@ -1,0 +1,42 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :opening_bank %><br />
+    RM <%= f.text_field :opening_bank %> *Please select the Bank you open the account
+  </div>
+  <br />
+  <select name="account[bank]">
+  <option value="Affin Bank">&nbsp;&nbsp;Affin Bank</option>
+  <option value="Alliance Bank">Alliance Bank</option>
+  <option value="AmBank">Ambank</option>
+  <option value="Cimb Bank">Cimb Bank</option>
+  <option value="Citibank">Citibank</option>
+  <option value="HSBC Bank">HSBC Bank</option>
+  <option value="Hong Leong Bank">Hong Leong Bank</option>
+  <option value="MayBank">Maybank</option>
+  <option value="OCBC Bank">OCBC Bank</option>
+  <option value="Public Bank">Public Bank</option>
+  <option value="RHB Bank">RHB Bank</option>
+  <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+  <option value="UOB Bank">UOB Bank</option>
+</select>
+
+  <div class='field'><br />
+  <%= f.file_field :image %> *Bank In Slip(For Accounting Record Purposes)
+  </div>
+
+  <div class="actions">
+    <br /><%= f.submit %> | <%= link_to 'Back', accounts_path %>
+  </div>
+<% end %>

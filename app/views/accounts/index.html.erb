@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h2>Opening Account:</h2><h4>*must fill up either cash or bank before proceed</h4>
+  <a href='/opening_cash' class="btn btn-primary btn-lg btn-block">Cash</a>
+  <a href='/opening_bank' class="btn btn-default btn-lg btn-block">Bank</a>
+  <br />
+  <h2>Stock Purchases:</h2>
+  <a href='/cash_purchase' class="btn btn-primary btn-lg btn-block">Cash</a>
+  <a href='/credit_purchase' class="btn btn-default btn-lg btn-block">Credit</a>
+  <br />
+  <h2>Sales Collection:</h2>
+  <a href='/cash_collection' class="btn btn-primary btn-lg btn-block">Cash</a>
+  <a href='/card_collection' class="btn btn-default btn-lg btn-block">Credit & Debit Card Collection</a>
+  <a href='/fpx_collection' class="btn btn-default btn-lg btn-block">FPX</a>
+  <a href='/bank_transfer' class="btn btn-default btn-lg btn-block">Direct Bank Transfer</a>
+  <br />
+  <h2>Creditor Payment:</h2>
+  <a href='/payment_cash' class="btn btn-primary btn-lg btn-block">Cash</a>
+  <a href='/payment_bank' class="btn btn-default btn-lg btn-block">Bank</a>
+</div>
+
+<br>
+
+<%= link_to 'Cash & Bank Current Asset', cash_ca_path %> |
+<%= link_to 'Cost of Sales and Purchase', purchase_cos_path %> |
+<%= link_to 'Trade Creditor', trade_creditor_path %>

@@ -1,0 +1,137 @@
+<%= form_for(account) do |f| %>
+  <% if account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :opening_cash %>
+    <%= f.text_field :opening_cash %>
+  </div>
+
+  <div class="field">
+    <%= f.label :opening_bank %>
+    <%= f.text_field :opening_bank %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bank %>
+    <%= f.text_field :bank %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cash_collection_amount %>
+    <%= f.text_field :cash_collection_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cash_collection_description %>
+    <%= f.text_field :cash_collection_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cash_purchase_amount %>
+    <%= f.text_field :cash_purchase_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cash_purchase_description %>
+    <%= f.text_field :cash_purchase_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :credit_purchase_amount %>
+    <%= f.text_field :credit_purchase_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :credit_purchase_description %>
+    <%= f.text_field :credit_purchase_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :creditor_name %>
+    <%= f.text_field :creditor_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_creditor_cash_amount %>
+    <%= f.text_field :payment_creditor_cash_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_creditor_cash_description %>
+    <%= f.text_field :payment_creditor_cash_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_creditor_bank_amount %>
+    <%= f.text_field :payment_creditor_bank_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_creditor_bank_description %>
+    <%= f.text_field :payment_creditor_bank_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_collection_amount %>
+    <%= f.text_field :card_collection_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_collection_description %>
+    <%= f.text_field :card_collection_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_charges %>
+    <%= f.number_field :card_charges %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bank_transfer_amount %>
+    <%= f.text_field :bank_transfer_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bank_transfer_description %>
+    <%= f.text_field :bank_transfer_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fpx_collection_amount %>
+    <%= f.text_field :fpx_collection_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fpx_collection_description %>
+    <%= f.text_field :fpx_collection_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fpx_charges %>
+    <%= f.text_field :fpx_charges %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

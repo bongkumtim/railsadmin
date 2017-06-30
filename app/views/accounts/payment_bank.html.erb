@@ -1,0 +1,39 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :payment_creditor_bank_amount %><br />
+    RM <%= f.text_field :payment_creditor_bank_amount %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :payment_creditor_bank_description %>
+    <p> Payment invoice no.  *eg: INV 475689</p>
+    Payment : <%= f.text_field :payment_creditor_bank_description %>
+  </div>
+  <br /> 
+  <div class="field">
+    <%= f.label :creditor_name %> *eg: M Sdn Bhd<br />
+    <%= f.text_field :creditor_name %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :Payment_Voucher %> * For Accounting Record Purpose
+    <%= f.file_field :image %>
+  </div>
+    <br />
+    <div class="actions">
+    <%= f.submit %>  | <%= link_to 'Back', accounts_path %>
+  </div>
+<% end %>
+
