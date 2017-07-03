@@ -1,9 +1,9 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_all, only: [:new, :opening_cash, :opening_bank, :cash_purchase, :credit_purchase, :cash_collection, :payment_cash, :payment_bank, :card_collection, :fpx_collection, :bank_transfer]
+  before_action :find_user, only: [:index, :cos, :cash_ca, :trade_creditor]
 
   def index
-    @accounts = Account.where(user_id: current_user)
   end
 
 
@@ -11,7 +11,6 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = current_user.accounts.build
   end
 
 
@@ -24,8 +23,8 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
+        format.html { redirect_to cash_ca_path, notice: 'Account was successfully created.' }
+        format.json { render :show, status: :created, location: cash_ca_path}
       else
         format.html { render :new }
         format.json { render json: @account.errors, status: :unprocessable_entity }
@@ -34,59 +33,46 @@ class AccountsController < ApplicationController
   end
 
   def cos
-    @accounts = Account.where(user_id: current_user)
     @total_purchase = @accounts.map(&:cash_purchase_amount).compact.sum + @accounts.map(&:credit_purchase_amount).compact.sum
     @total_sales = @accounts.map(&:cash_collection_amount).compact.sum + @accounts.map(&:card_collection_amount).compact.sum + @accounts.map(&:fpx_collection_amount).compact.sum + @accounts.map(&:bank_transfer_amount).compact.sum
   end
 
   def opening_cash
-    @account = current_user.accounts.build
   end
 
   def opening_bank
-    @account = current_user.accounts.build
   end
 
   def cash_purchase
-    @account = current_user.accounts.build
   end
 
   def credit_purchase
-    @account = current_user.accounts.build
   end
 
   def cash_collection
-    @account = current_user.accounts.build
   end
 
   def payment_cash
-    @account = current_user.accounts.build
   end
 
   def payment_bank
-    @account = current_user.accounts.build
   end
 
   def card_collection
-    @account = current_user.accounts.build
   end
 
   def fpx_collection
-    @account = current_user.accounts.build
   end
 
   def bank_transfer
-    @account = current_user.accounts.build
   end
 
   def cash_ca
-    @accounts = Account.where(user_id: current_user)
     @total_cash = @accounts.map(&:cash_collection_amount).compact.sum + @accounts.map(&:opening_cash).compact.sum - (@accounts.map(&:cash_purchase_amount).compact.sum +@accounts.map(&:payment_creditor_cash_amount).compact.sum)
     @total_bank = @accounts.map(&:card_collection_amount).compact.sum + @accounts.map(&:fpx_collection_amount).compact.sum + @accounts.map(&:bank_transfer_amount).compact.sum + @accounts.map(&:opening_bank).compact.sum - @accounts.map(&:payment_creditor_bank_amount).compact.sum
   end
 
   def trade_creditor
-    @accounts = Account.where(user_id: current_user)
     @total_trade = @accounts.map(&:credit_purchase_amount).compact.sum - (@accounts.map(&:payment_creditor_bank_amount).compact.sum +@accounts.map(&:payment_creditor_cash_amount).compact.sum)
   end
 
@@ -114,6 +100,14 @@ class AccountsController < ApplicationController
   end
 
   private
+
+    def find_user
+      @accounts = Account.where(user_id: current_user)
+    end
+
+    def set_all
+      @account = current_user.accounts.build
+    end
  
     def set_account
       @account = Account.find(params[:id])
