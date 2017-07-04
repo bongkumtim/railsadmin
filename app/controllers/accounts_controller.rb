@@ -33,8 +33,8 @@ class AccountsController < ApplicationController
   end
 
   def cos
-    @total_purchase = @accounts.map(&:cash_purchase_amount).compact.sum + @accounts.map(&:credit_purchase_amount).compact.sum
-    @total_sales = @accounts.map(&:cash_collection_amount).compact.sum + @accounts.map(&:card_collection_amount).compact.sum + @accounts.map(&:fpx_collection_amount).compact.sum + @accounts.map(&:bank_transfer_amount).compact.sum
+    @total_purchase = @accounts.pluck(:cash_purchase_amount).compact.sum + @accounts.pluck(:credit_purchase_amount).compact.sum
+    @total_sales = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:card_collection_amount).compact.sum + @accounts.pluck(:fpx_collection_amount).compact.sum + @accounts.pluck(:bank_transfer_amount).compact.sum
   end
 
   def demon
@@ -72,11 +72,11 @@ class AccountsController < ApplicationController
 
   def cash_ca
     @total_cash = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:opening_cash).compact.sum - (@accounts.pluck(:cash_purchase_amount).compact.sum +@accounts.pluck(:payment_creditor_cash_amount).compact.sum)
-    @total_bank = @accounts.map(&:card_collection_amount).compact.sum + @accounts.map(&:fpx_collection_amount).compact.sum + @accounts.map(&:bank_transfer_amount).compact.sum + @accounts.map(&:opening_bank).compact.sum - @accounts.map(&:payment_creditor_bank_amount).compact.sum
+    @total_bank = @accounts.pluck(:card_collection_amount).compact.sum + @accounts.pluck(:fpx_collection_amount).compact.sum + @accounts.pluck(:bank_transfer_amount).compact.sum + @accounts.pluck(:opening_bank).compact.sum - @accounts.pluck(:payment_creditor_bank_amount).compact.sum
   end
 
   def trade_creditor
-    @total_trade = @accounts.map(&:credit_purchase_amount).compact.sum - (@accounts.map(&:payment_creditor_bank_amount).compact.sum +@accounts.map(&:payment_creditor_cash_amount).compact.sum)
+    @total_trade = @accounts.pluck(:credit_purchase_amount).compact.sum - (@accounts.pluck(:payment_creditor_bank_amount).compact.sum +@accounts.pluck(:payment_creditor_cash_amount).compact.sum)
   end
 
   
