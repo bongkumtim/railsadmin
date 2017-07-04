@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/cash_ca' => 'accounts#cash_ca'
   get '/purchase_cos' => 'accounts#cos'
   get '/trade_creditor' => 'accounts#trade_creditor'
+  get '/demon' => 'accounts#demon'
 
 
 

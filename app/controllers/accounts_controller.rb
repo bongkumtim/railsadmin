@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
   before_action :set_all, only: [:new, :opening_cash, :opening_bank, :cash_purchase, :credit_purchase, :cash_collection, :payment_cash, :payment_bank, :card_collection, :fpx_collection, :bank_transfer]
-  before_action :find_user, only: [:index, :cos, :cash_ca, :trade_creditor]
+  before_action :find_user, only: [:index, :cos, :cash_ca, :trade_creditor, :demon]
 
   def index
   end
@@ -37,6 +37,9 @@ class AccountsController < ApplicationController
     @total_sales = @accounts.map(&:cash_collection_amount).compact.sum + @accounts.map(&:card_collection_amount).compact.sum + @accounts.map(&:fpx_collection_amount).compact.sum + @accounts.map(&:bank_transfer_amount).compact.sum
   end
 
+  def demon
+  end
+
   def opening_cash
   end
 
@@ -68,7 +71,7 @@ class AccountsController < ApplicationController
   end
 
   def cash_ca
-    @total_cash = @accounts.map(&:cash_collection_amount).compact.sum + @accounts.map(&:opening_cash).compact.sum - (@accounts.map(&:cash_purchase_amount).compact.sum +@accounts.map(&:payment_creditor_cash_amount).compact.sum)
+    @total_cash = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:opening_cash).compact.sum - (@accounts.pluck(:cash_purchase_amount).compact.sum +@accounts.pluck(:payment_creditor_cash_amount).compact.sum)
     @total_bank = @accounts.map(&:card_collection_amount).compact.sum + @accounts.map(&:fpx_collection_amount).compact.sum + @accounts.map(&:bank_transfer_amount).compact.sum + @accounts.map(&:opening_bank).compact.sum - @accounts.map(&:payment_creditor_bank_amount).compact.sum
   end
 
