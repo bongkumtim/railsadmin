@@ -3,6 +3,9 @@
   <h2>Opening Account:</h2><h4>*must fill up either cash or bank before proceed</h4>
   <a href='/opening_cash' class="btn btn-primary btn-lg btn-block">Cash</a>
   <a href='/opening_bank' class="btn btn-default btn-lg btn-block">Bank</a>
+  <a href='/asset_purchase_cash' class="btn btn-default btn-lg btn-block">Asset Purchase using Cash</a>
+  <a href='/asset_purchase_bank' class="btn btn-default btn-lg btn-block">Asset Purchase using Bank</a>
+  <a href='/asset_purchase_loan' class="btn btn-default btn-lg btn-block">Asset Purchase using Loan</a>
   <br />
   <h2>Stock Purchases:</h2>
   <a href='/cash_purchase' class="btn btn-primary btn-lg btn-block">Cash</a>
@@ -18,10 +21,14 @@
   <a href='/payment_cash' class="btn btn-primary btn-lg btn-block">Cash</a>
   <a href='/payment_bank' class="btn btn-default btn-lg btn-block">Bank</a>
   <br />
+  <h2>Recurring Payment:</h2>
+  <p>*include all bills, salaries, wages and drawing</p>
+  <a href='/recurring_payment_cash' class="btn btn-primary btn-lg btn-block">Cash</a>
+  <a href='/recurring_payment_bank' class="btn btn-default btn-lg btn-block">Bank</a>
+  <br />
   <h2>Accounting Report:</h2>
-  <a href='/cash_ca' class="btn btn-primary btn-lg btn-block">Cash & Bank Current Asset</a>
+  <a href='/generate' class="btn btn-primary btn-lg btn-block">Full Accounting Report</a>
   <a href='/purchase_cos' class="btn btn-default btn-lg btn-block">Cost of Sales & Purchase</a>
   <a href='/trade_creditor' class="btn btn-default btn-lg btn-block">Trade Creditor</a>
+  <a href='/cash_ca' class="btn btn-default btn-lg btn-block">Cash & Bank Current Asset</a>
 </div>
-
-<%= link_to'demon', demon_path %>

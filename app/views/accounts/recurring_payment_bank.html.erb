@@ -1,0 +1,46 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :recurring_payment_bank_amount %><br />
+    RM <%= f.number_field :recurring_payment_bank_amount %> *Please enter the amount here
+  </div>
+  <br />
+  <select name="account[recurring_payment_bank]">
+  <option value="Telephone Bill">&nbsp;&nbsp;Phone Bill</option>
+  <option value="Salary">Staff Salary *must have EPF & Socso</option>
+  <option value="Staff EPF">EPF *pls mention the staff name below the description</option>
+  <option value="Staff Socso">SOCSO *pls mention the staff name below the description</option>
+  <option value="Part time Wages">Wages *for part time staff without EPF & Socso</option>
+  <option value="Rental">Rental</option>
+  <option value="Petrol Claim">Petrol Claim</option>
+  <option value="Electric Bill">Electric Bill</option>
+  <option value="Water Bill">Water Bill</option>
+  <option value="Director Drawing">Director Drawing</option>
+  <option value="Other">Other</option>
+</select>
+
+  <div class="field">
+    <%= f.label :recurring_payment_bank_description %><br />
+    <%= f.text_field :recurring_payment_bank_description %> *Please enter relevant information here
+  </div>
+  <br />
+
+  <div class='field'><br />
+  <%= f.file_field :image %> *Bank In Slip(For Accounting Record Purposes)
+  </div>
+
+  <div class="actions">
+    <br /><%= f.submit %> | <%= link_to 'Back', accounts_path %>
+  </div>
+<% end %>

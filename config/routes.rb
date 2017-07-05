@@ -28,8 +28,12 @@ Rails.application.routes.draw do
   get '/cash_ca' => 'accounts#cash_ca'
   get '/purchase_cos' => 'accounts#cos'
   get '/trade_creditor' => 'accounts#trade_creditor'
-  get '/demon' => 'accounts#demon'
-
+  get '/generate' => 'accounts#generate'
+  get '/recurring_payment_cash' => 'accounts#recurring_payment_cash'
+  get '/recurring_payment_bank' => 'accounts#recurring_payment_bank'
+  get '/asset_purchase_cash' => 'accounts#asset_purchase_cash'
+  get '/asset_purchase_bank' => 'accounts#asset_purchase_bank'
+  get '/asset_purchase_loan' => 'accounts#asset_purchase_loan'
 
 
 end

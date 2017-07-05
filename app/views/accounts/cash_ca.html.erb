@@ -22,8 +22,8 @@
         <td><%= number_to_currency(account.opening_cash) %></td>
         <td><%= number_to_currency(account.cash_collection_amount) %></td>
         <td><%= account.open_cash_description %><%= account.cash_collection_description %></td>
-        <td><%= number_to_currency(account.cash_purchase_amount) %><%= number_to_currency(account.payment_creditor_cash_amount) %> </td>
-        <td><%= (account.cash_purchase_description)%><%= account.payment_creditor_cash_description %></td>
+        <td><%= number_to_currency(account.cash_purchase_amount) %><%= number_to_currency(account.payment_creditor_cash_amount) %> <%= number_to_currency(account.recurring_payment_amount) %><%= number_to_currency(account.asset_purchase_cash_amount) %></td>
+        <td><%= (account.cash_purchase_description)%><%= account.payment_creditor_cash_description %><%= account.recurring_payment %><%= account.asset_purchase_cash_description %></td>
         <% end %>
         <td><%= number_to_currency(@total_cash) %></td>
       </tr>
@@ -57,8 +57,8 @@
         <td><%= number_to_currency(account.opening_bank) %></td>
         <td><%= number_to_currency(account.bank_transfer_amount) %><%= number_to_currency(account.fpx_collection_amount) %><%= number_to_currency(account.card_collection_amount) %></td>
         <td><%= account.bank %><%= (account.bank_transfer_description) %><%= (account.fpx_collection_description) %><%= (account.card_collection_description) %></td>
-        <td><%= number_to_currency(account.payment_creditor_bank_amount) %></td>
-        <td><%= (account.payment_creditor_bank_description) %></td>
+        <td><%= number_to_currency(account.payment_creditor_bank_amount) %><%= number_to_currency(account.recurring_payment_bank_amount) %><%= number_to_currency(account.asset_purchase_bank_amount) %></td>
+        <td><%= (account.payment_creditor_bank_description) %><%= (account.recurring_payment_bank) %> <%= account.asset_purchase_bank_description %></td>
         <% end %>
         <td><%= number_to_currency(@total_bank) %></td>
       </tr>

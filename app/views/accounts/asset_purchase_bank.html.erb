@@ -11,30 +11,30 @@
     </div>
   <% end %>
 
- 
   <div class="field">
-    <%= f.label :creditor_name %> * eg: M Sdn Bhd <br />
-    <%= f.text_field :creditor_name %>
+    <%= f.label :asset_purchase_bank_amount %><br />
+    RM <%= f.number_field :asset_purchase_bank_amount %>
   </div>
   <br />
   <div class="field">
-    <%= f.label :payment_creditor_cash_amount %><br />
-    <%= f.number_field :payment_creditor_cash_amount %>
+    <%= f.label :asset_purchase_bank_description %>
+    <p> *example: Furniture, Equipment for running business etc</p>
+    <%= f.text_field :asset_purchase_bank_description %>
   </div>
   <br />
   <div class="field">
-    <%= f.label :payment_creditor_cash_description %>
-    <p> Payment for invoice no. *eg: Payment for Inv 201278 </p>
-    Payment : <%= f.text_field :payment_creditor_cash_description %>
+    <%= f.label :depreciation_bank %><br />
+     <p> *This asset can use for how long? *example 5 years should be 100% / 5years = 20%</p>
+    <%= f.number_field :depreciation_bank %>%
   </div>
   <br />
   <div class="field">
     <%= f.label :Payment_Voucher %> * For Accounting Record Purposes
     <%= f.file_field :image %>
   </div>
+  
   <br />
     <div class="actions">
     <%= f.submit %>  | <%= link_to 'Back', accounts_path %>
   </div>
 <% end %>
-
