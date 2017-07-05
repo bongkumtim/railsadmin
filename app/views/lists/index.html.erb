@@ -6,9 +6,9 @@
             <div class="col-md-3">
                 <p class="lead"><%= current_user.company_name.upcase%></p>
                 <div class="list-group">
-                    <a href="/index" class="list-group-item">Cash in Hand : <%= @total_cash %></a>
-                    <a href="/index" class="list-group-item">Cash in Bank : <%= @total_bank %></a>
-                    <a href="/" class="list-group-item">Total Sales : <%= @total_sales %></a>
+                    <a href="/index" class="list-group-item">Cash in Hand : <%= sprintf('%.2f',@total_cash) %></a>
+                    <a href="/index" class="list-group-item">Cash in Bank : <%= sprintf('%.2f',@total_bank) %></a>
+                    <a href="/" class="list-group-item">Total Sales : <%= sprintf('%.2f',@total_sales) %></a>
                 </div>
             </div>
             
