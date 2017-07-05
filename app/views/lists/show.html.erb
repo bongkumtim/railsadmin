@@ -4,11 +4,10 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead"><%= current_user.company_name.upcase %></p>
                 <div class="list-group">
-                    <a href="/index" class="list-group-item">Find All Merchant</a>
-                    <a href="/index" class="list-group-item">Special Offer</a>
-                    <a href="/" class="list-group-item">Find Near Me(5KM)</a>
+                    <a href="/index" class="list-group-item">Company : <%= @user.find(@list.user_id).company_name %></a>
+                    <a href="/index" class="list-group-item">Address : <%= @user.find(@list.user_id).address %></a>
+                    <a href="/" class="list-group-item">Person in-charge : <%= @user.find(@list.user_id).full_name %></a>
                 </div>
             </div>
             <div class="col-md-9">
@@ -20,6 +19,7 @@
                         <h4><%= @list.title %>
                         </h4>
                         <p><%= @list.description %></p>
+
                         <% if current_user == @list.user %>
                         <p><%= link_to 'Edit', edit_list_path(@list) %> | <%= link_to 'Destroy', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
                         <% else %>
