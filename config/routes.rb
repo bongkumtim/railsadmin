@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get '/asset_purchase_cash' => 'accounts#asset_purchase_cash'
   get '/asset_purchase_bank' => 'accounts#asset_purchase_bank'
   get '/asset_purchase_loan' => 'accounts#asset_purchase_loan'
+  get '/showing' => 'lists#showing'
 
 
 end

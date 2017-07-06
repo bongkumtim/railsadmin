@@ -14,6 +14,10 @@ class ListsController < ApplicationController
     @total_sales = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:card_collection_amount).compact.sum + @accounts.pluck(:fpx_collection_amount).compact.sum + @accounts.pluck(:bank_transfer_amount).compact.sum
   end
 
+  def showing
+    @lists = List.where(user_id: current_user).paginate(:page => params[:page], :per_page => 6)
+  end
+
 
   def show
      @user = User.all
