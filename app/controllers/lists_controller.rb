@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   end
 
   def index
-    @lists = List.all.order("created_at DESC")
+    @lists = List.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
     @accounts = Account.where(user_id: current_user)
     @total_cash = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:opening_cash).compact.sum - @accounts.pluck(:cash_purchase_amount).compact.sum - @accounts.pluck(:payment_creditor_cash_amount).compact.sum - @accounts.pluck(:recurring_payment_amount).compact.sum - @accounts.pluck(:asset_purchase_cash_amount).compact.sum
     @total_bank = @accounts.pluck(:card_collection_amount).compact.sum + @accounts.pluck(:fpx_collection_amount).compact.sum + @accounts.pluck(:bank_transfer_amount).compact.sum + @accounts.pluck(:opening_bank).compact.sum - @accounts.pluck(:payment_creditor_bank_amount).compact.sum - @accounts.pluck(:recurring_payment_bank_amount).compact.sum - @accounts.pluck(:asset_purchase_bank_amount).compact.sum

@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'fog-google'
 gem 'google-api-client', '~> 0.8.6'
 gem 'mini_magick', '~> 4.7', '>= 4.7.1'
