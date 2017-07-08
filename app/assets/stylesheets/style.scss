@@ -51,6 +51,7 @@ a:hover {
   min-height: 855px;
   background-size: cover;
   margin: -1.3em;
+  padding-top: 50px; 
 }
 .banner-bottom {
   padding: 15em 0em 0em 0em;
@@ -224,7 +225,6 @@ span.glyphicon.glyphicon-apple {
     padding: 0em 0em 3em 0em;
 }
 .services-top h3 {
-
   font-size: 2.5em;
   font-weight: 400;
   color: #B08A5B;
@@ -277,6 +277,7 @@ span.glyphicon.glyphicon-apple {
 /*--changer start here--*/
 .changer {
   padding: 4em 0em 4em 0em;
+  background-color: rgb(255, 255, 255);
 }
 .changer-top {
   text-align: center;
