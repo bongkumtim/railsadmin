@@ -49,7 +49,7 @@
                   <% @lists.each do |list| %>
                     <div class="col-sm-12 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <%= image_tag (list.image.medium) if list.image? %>
+                            <%= image_tag (list.image.url) if list.image? %>
                             <div class="caption">
                                 <h4>RM <%= sprintf('%.2f', list.price) if list.price? %></h4>
                                 <p><h4>><%= link_to list.title,list %></h4></p>
