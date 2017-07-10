@@ -148,7 +148,7 @@ class AccountsController < ApplicationController
   end
 
   def trade_creditor
-    @account = @accounts.where.not(credit_purchase_amount: nil)  
+    @account = @accounts.where.not(credit_purchase_amount: nil).or(@accounts.where.not(payment_creditor_bank_amount: nil)).or(@accounts.where.not(payment_creditor_cash_amount: nil))
   end
 
   
