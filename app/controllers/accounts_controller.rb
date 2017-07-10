@@ -88,7 +88,7 @@ class AccountsController < ApplicationController
     @total_one = @total_inventory + @total_cash + @total_bank + @total_asset
     @total_two = @total_one - @total_trade
     @net_profit = @total_two - @capital
-    @total_bs = @net_profit - @total_drawing
+    @total_bs = @net_profit + @total_drawing
     @gross_profit = @total_sales -  @total_purchase
     @total_expenses = @total_phone + @total_salary + @total_epf + @total_socso + @total_wages + @total_rental + @total_petrol + @total_electric + @total_water + @total_other + @total_drawing
     @net_profit_two = @gross_profit - @total_expenses + @total_inventory
