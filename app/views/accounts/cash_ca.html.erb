@@ -15,7 +15,7 @@
         <th>Balance Amount</th>
       </tr>
     </thead>
-<% @accounts.each do |account| %>
+<% @account_cash.each do |account| %>
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
@@ -50,7 +50,7 @@
         <th>Balance Amount</th>
       </tr>
     </thead>
-<% @accounts.each do |account| %>
+<% @account_bank.each do |account| %>
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
@@ -66,3 +66,7 @@
     </tbody>
   </table>
   </div>
+
+  <% @account_cash.each do |a| %>
+  <%= a %>
+  <% end %>

@@ -126,11 +126,16 @@
         <td></td>
         <td>(RM <%= sprintf('%.2f',@total_purchase) %>)</td>
       </tr>
-      <tr>
-     <th>Gross Profit</th>
+    <thead>
+      <th>Gross Profit</th>
         <th>RM <%= sprintf('%.2f',@gross_profit) %></th>
       </tr>
     </thead>
+      <tr>
+        <td>Closing Inventory</td>
+        <td>RM <%= sprintf('%.2f',@total_inventory) %></td>
+      </tr>
+      <tr>
      <th>Expenses</th>
         <th></th>
       </tr>

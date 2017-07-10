@@ -34,7 +34,8 @@ class AccountsController < ApplicationController
   end
 
   def cos
-    
+    @purchase = @accounts.where.not(cash_purchase_amount: nil).or(@accounts.where.not(credit_purchase_amount: nil))
+    @sales = @accounts.where.not(cash_collection_amount: nil).or(@accounts.where.not(fpx_collection_amount: nil)).or(@accounts.where.not(card_collection_amount: nil)).or(@accounts.where.not(bank_transfer_amount: nil))
   end
 
   def generate
@@ -90,7 +91,7 @@ class AccountsController < ApplicationController
     @total_bs = @net_profit - @total_drawing
     @gross_profit = @total_sales -  @total_purchase
     @total_expenses = @total_phone + @total_salary + @total_epf + @total_socso + @total_wages + @total_rental + @total_petrol + @total_electric + @total_water + @total_other + @total_drawing
-    @net_profit_two = @gross_profit - @total_expenses  
+    @net_profit_two = @gross_profit - @total_expenses + @total_inventory
   end
 
   def closing
@@ -142,11 +143,12 @@ class AccountsController < ApplicationController
   end
 
   def cash_ca
-    
+     @account_cash = @accounts.where.not(opening_cash: nil).or(@accounts.where.not(cash_collection_amount: nil)).or(@accounts.where.not(payment_creditor_cash_amount: nil)).or(@accounts.where.not(asset_purchase_cash_amount: nil)).or(@accounts.where.not(recurring_payment_amount: nil)).or(@accounts.where.not(cash_purchase_amount: nil))
+     @account_bank = @accounts.where.not(opening_bank: nil).or(@accounts.where.not(card_collection_amount: nil)).or(@accounts.where.not(payment_creditor_bank_amount: nil)).or(@accounts.where.not(asset_purchase_bank_amount: nil)).or(@accounts.where.not(recurring_payment_bank_amount: nil)).or(@accounts.where.not(bank_transfer_amount: nil)).or(@accounts.where.not(fpx_collection_amount: nil))
   end
 
   def trade_creditor
-    
+    @account = @accounts.where.not(credit_purchase_amount: nil)  
   end
 
   
