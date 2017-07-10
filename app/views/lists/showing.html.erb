@@ -1,9 +1,9 @@
+<div class="container">
                 <div class="row">
                 <% @lists.each do |list| %>
                     <div class="col-sm-12 col-lg-3 col-md-3">
-                        <div class="thumbnail">
-                         
-                            <%= image_tag(list.image.url, size: "200x100") if list.image? %>
+                        <div class="thumbnail">                         
+                         <%= image_tag(list.image.url, size: "200x100") if list.image? %>
                             <div class="caption">
                                 <h4>RM <%= sprintf('%.2f', list.price) if list.price? %></h4>
                                 <p><h4>><%= link_to list.title,list %></h4></p>
@@ -17,3 +17,4 @@
                 </div> 
 
                <%= will_paginate @lists %>
+</div>

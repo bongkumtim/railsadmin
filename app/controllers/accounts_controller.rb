@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-  before_action :set_all, only: [:asset_purchase_cash, :asset_purchase_bank, :asset_purchase_loan, :generate, :recurring_payment_bank, :recurring_payment_cash, :new, :opening_cash, :opening_bank, :cash_purchase, :credit_purchase, :cash_collection, :payment_cash, :payment_bank, :card_collection, :fpx_collection, :bank_transfer]
+  before_action :set_all, only: [:closing, :asset_purchase_cash, :asset_purchase_bank, :asset_purchase_loan, :generate, :recurring_payment_bank, :recurring_payment_cash, :new, :opening_cash, :opening_bank, :cash_purchase, :credit_purchase, :cash_collection, :payment_cash, :payment_bank, :card_collection, :fpx_collection, :bank_transfer]
   before_action :find_user, only: [:index, :cos, :cash_ca, :trade_creditor, :generate]
   before_action :summary, only: [:cos, :cash_ca, :trade_creditor, :generate]
 
@@ -38,6 +38,8 @@ class AccountsController < ApplicationController
   end
 
   def generate
+    @total_inventory = @accounts.pluck(:closing_inventory).compact.sum
+
     @phone = @accounts.where(recurring_payment: 'Telephone Bill')
     @phone2= @accounts.where(recurring_payment_bank: 'Telephone Bill')
     @total_phone = @phone.pluck(:recurring_payment_amount).compact.sum + @phone2.pluck(:recurring_payment_bank_amount).compact.sum
@@ -82,9 +84,16 @@ class AccountsController < ApplicationController
     @draw = @accounts.where(recurring_payment_bank: 'Director Drawing')
     @total_drawing = @drawing.pluck(:recurring_payment_amount).compact.sum + @draw.pluck(:recurring_payment_bank_amount).compact.sum
     
-    @total_bs = @total_cash + @total_bank + @total_asset + @total_drawing - @total_trade
+    @total_one = @total_inventory + @total_cash + @total_bank + @total_asset
+    @total_two = @total_one - @total_trade
+    @net_profit = @total_two - @capital
+    @total_bs = @net_profit - @total_drawing
     @gross_profit = @total_sales -  @total_purchase
     @total_expenses = @total_phone + @total_salary + @total_epf + @total_socso + @total_wages + @total_rental + @total_petrol + @total_electric + @total_water + @total_other + @total_drawing
+    @net_profit_two = @gross_profit - @total_expenses  
+  end
+
+  def closing
   end
 
   def opening_cash
@@ -166,12 +175,14 @@ class AccountsController < ApplicationController
   private
 
     def summary
+
       @total_asset = @accounts.pluck(:asset_purchase_cash_amount).compact.sum + @accounts.pluck(:asset_purchase_bank_amount).compact.sum
       @total_cash = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:opening_cash).compact.sum - @accounts.pluck(:cash_purchase_amount).compact.sum - @accounts.pluck(:payment_creditor_cash_amount).compact.sum - @accounts.pluck(:recurring_payment_amount).compact.sum - @accounts.pluck(:asset_purchase_cash_amount).compact.sum
       @total_bank = @accounts.pluck(:card_collection_amount).compact.sum + @accounts.pluck(:fpx_collection_amount).compact.sum + @accounts.pluck(:bank_transfer_amount).compact.sum + @accounts.pluck(:opening_bank).compact.sum - @accounts.pluck(:payment_creditor_bank_amount).compact.sum - @accounts.pluck(:recurring_payment_bank_amount).compact.sum - @accounts.pluck(:asset_purchase_bank_amount).compact.sum
       @total_purchase = @accounts.pluck(:cash_purchase_amount).compact.sum + @accounts.pluck(:credit_purchase_amount).compact.sum
       @total_sales = @accounts.pluck(:cash_collection_amount).compact.sum + @accounts.pluck(:card_collection_amount).compact.sum + @accounts.pluck(:fpx_collection_amount).compact.sum + @accounts.pluck(:bank_transfer_amount).compact.sum
       @total_trade = @accounts.pluck(:credit_purchase_amount).compact.sum - (@accounts.pluck(:payment_creditor_bank_amount).compact.sum +@accounts.pluck(:payment_creditor_cash_amount).compact.sum)
+      @capital = @accounts.pluck(:opening_bank).compact.sum  + @accounts.pluck(:opening_cash).compact.sum 
     end
 
     def find_user
@@ -187,6 +198,6 @@ class AccountsController < ApplicationController
     end
 
     def account_params
-      params.require(:account).permit(:asset_purchase_bank_description, :asset_purchase_bank_amount, :asset_purchase_bank,:depreciation_bank,:asset_purchase_cash_description, :asset_purchase_cash_amount, :asset_purchase_cash,:depreciation_cash, :recurring_payment_bank_amount, :recurring_payment_bank_description, :recurring_payment_bank, :recurring_payment, :recurring_payment_description, :recurring_payment_amount, :open_cash_description, :opening_cash, :opening_bank, :user_id, :bank, :image, :cash_collection_amount, :cash_collection_description, :cash_purchase_amount, :cash_purchase_description, :credit_purchase_amount, :credit_purchase_description, :creditor_name, :payment_creditor_cash_amount, :payment_creditor_cash_description, :payment_creditor_bank_amount, :payment_creditor_bank_description, :card_collection_amount, :card_collection_description, :card_charges, :bank_transfer_amount, :bank_transfer_description, :fpx_collection_amount, :fpx_collection_description, :fpx_charges)
+      params.require(:account).permit(:closing_inventory, :asset_purchase_bank_description, :asset_purchase_bank_amount, :asset_purchase_bank,:depreciation_bank,:asset_purchase_cash_description, :asset_purchase_cash_amount, :asset_purchase_cash,:depreciation_cash, :recurring_payment_bank_amount, :recurring_payment_bank_description, :recurring_payment_bank, :recurring_payment, :recurring_payment_description, :recurring_payment_amount, :open_cash_description, :opening_cash, :opening_bank, :user_id, :bank, :image, :cash_collection_amount, :cash_collection_description, :cash_purchase_amount, :cash_purchase_description, :credit_purchase_amount, :credit_purchase_description, :creditor_name, :payment_creditor_cash_amount, :payment_creditor_cash_description, :payment_creditor_bank_amount, :payment_creditor_bank_description, :card_collection_amount, :card_collection_description, :card_charges, :bank_transfer_amount, :bank_transfer_description, :fpx_collection_amount, :fpx_collection_description, :fpx_charges)
     end
 end

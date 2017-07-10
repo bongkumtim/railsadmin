@@ -12,20 +12,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cash_collection_amount %><br />
-    RM <%= f.number_field :cash_collection_amount %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cash_collection_description %>
-    <p> eg: Sales of keyboard </p>
-    Sales :<%= f.text_field :cash_collection_description %>
+  <div class="field"> *Please key in inventory value to get the accurate accounting report
+    <%= f.label :closing_inventory %><br />
+    RM <%= f.number_field :closing_inventory %>
   </div>
   <br />
+  
     <div class="actions">
     <%= f.submit %>  | <%= link_to 'Back', accounts_path %>
   </div>
 <% end %>
 </div>
-

@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@account) do |f| %>
   <% if @account.errors.any? %>
     <div id="error_explanation">
@@ -16,11 +17,16 @@
     RM <%= f.number_field :asset_purchase_cash_amount %>
   </div>
   <br />
-  <div class="field">
-    <%= f.label :asset_purchase_cash_description %>
-    <p> *example: Furniture, Equipment for running business etc</p>
-    <%= f.text_field :asset_purchase_cash_description %>
-  </div>
+  <p> *example: Furniture, Equipment for running business etc</p>
+  <select name="account[asset_purchase_bank_description]">
+  <option value="Renovation">Office or Shop Renovation</option>
+  <option value="Computer or Software">Computer, Laptop and Software</option>
+  <option value="Office Equipment">Office Equipment</option>
+  <option value="Tools & Equipment">Tools and Equiipments needed for buisness Operation</option>
+  <option value="Telecomunication">Telecomunication</option>
+  <option value="Motor Vehicle">Motor Vehicle</option>
+  <option value="Furniture & Fitting">Furniture & Fitting</option>
+</select>
   <br />
   <div class="field">
     <%= f.label :depreciation_cash %><br />
@@ -38,3 +44,4 @@
     <%= f.submit %>  | <%= link_to 'Back', accounts_path %>
   </div>
 <% end %>
+</div>

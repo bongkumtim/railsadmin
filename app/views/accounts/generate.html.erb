@@ -5,11 +5,12 @@
   <h3>AS AT <%= Time.now.strftime("%m/%d/%Y") %></h3>
   <p>FOR MANAGEMENT PURPOSE ONLY</p><br />                                                                                     
   <div class="table-responsive">
-  <table class="table">
+  <table class="table table-bordered table-hover table-condensed">
     <thead>
       <tr>
         <th>Asset</th>
-        <th></th>
+        <th>Debit</th>
+        <th>Credit</th>
       </tr>
     </thead>
     <tbody>
@@ -22,9 +23,14 @@
       <tr>
         <th>Current Asset</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>Inventory</td>
+        <td>RM <%= sprintf('%.2f',@total_inventory) %></td>
+      </tr>
       <tr>
         <td>Cash</td>
         <td>RM <%= sprintf('%.2f',@total_cash) %></td>
@@ -33,25 +39,48 @@
        <td>Bank</td>
         <td>RM <%= sprintf('%.2f',@total_bank) %></td>
         </tr>
+       <thead>
+      <tr>
+        <th>Total</th>
+        <th>RM <%= sprintf('%.2f',@total_one) %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <thead>
      <th>Current Liability</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Trade Creditor</td>
+        <th></th>
         <td>(RM <%= sprintf('%.2f',@total_trade) %>)</td>
       </tr>
+      <thead>
+     <th>Net Current Asset</th>
+        <th>RM <%= sprintf('%.2f',@total_two) %></th>
+        <th></th>
+      </tr>
+    </thead>
      <th>Stockholder Equity</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Capital</td>
-        <td>RM 0</td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@capital) %>)</td>
       </tr> 
     </tbody>
+        <thead>
+        <th>Net Profit</th>
+        <th><mark>RM <%= sprintf('%.2f',@net_profit) %></mark></th>
+      </tr>
+    </thead>
      <th>Stockholder Drawing</th>
         <th></th>
       </tr>
@@ -59,14 +88,11 @@
     <tbody>
       <tr>
         <td>Total Drawing</td>
-        <td>RM<%= sprintf('%.2f',@total_drawing) %></td>
+        <td></td>
+        <td>(RM<%= sprintf('%.2f',@total_drawing) %>)</td>
       </tr>
       <th>Total</th>
         <th>RM<%= sprintf('%.2f',@total_bs) %></th>
-      </tr>
-    </thead>
-        <th>Net Profit</th>
-        <th>RM </th>
       </tr>
     </thead>
   </table>
@@ -74,11 +100,12 @@
  <center><h2>PROFIT AND LOSS</h2></center>
                                            
   <div class="table-responsive">
-  <table class="table">
+  <table class="table table-bordered table-hover table-condensed">
     <thead>
       <tr>
         <th>Revenue</th>
-        <th></th>
+        <th>Debit</th>
+        <th>Credit</th>
       </tr>
     </thead>
     <tbody>
@@ -96,6 +123,7 @@
     <tbody>
       <tr>
         <td>Purchase</td>
+        <td></td>
         <td>(RM <%= sprintf('%.2f',@total_purchase) %>)</td>
       </tr>
       <tr>
@@ -110,75 +138,87 @@
     <tbody>
       <tr>
         <td>Telephone Bill</td>
-        <td>RM <%= sprintf('%.2f',@total_phone) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_phone) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Salary</td>
-        <td>RM <%= sprintf('%.2f',@total_salary) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_salary) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Staff EPf</td>
-        <td>RM <%= sprintf('%.2f',@total_epf) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_epf) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Staff Socso</td>
-        <td>RM <%= sprintf('%.2f',@total_socso) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_socso) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Part Time Wages</td>
-        <td>RM <%= sprintf('%.2f',@total_wages) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_wages) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Rental</td>
-        <td>RM <%= sprintf('%.2f',@total_rental) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_rental) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Petrol Claim</td>
-        <td>RM <%= sprintf('%.2f',@total_petrol) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_petrol) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Electric Bill</td>
-        <td>RM <%= sprintf('%.2f',@total_electric) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_electric) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Water Bill</td>
-        <td>RM <%= sprintf('%.2f',@total_water) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_water) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Director Drawing</td>
-        <td>RM <%= sprintf('%.2f',@total_drawing) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_drawing) %>)</td>
       </tr>
     </tbody>
         <tbody>
       <tr>
         <td>Other</td>
-        <td>RM <%= sprintf('%.2f',@total_other) %></td>
+        <td></td>
+        <td>(RM <%= sprintf('%.2f',@total_other) %>)</td>
       </tr>
     </tbody>
    	<th>Total Expenses</th>
-        <th>RM <%= sprintf('%.2f',@total_expenses) %></th>
+    <td></td>
+        <th>(RM <%= sprintf('%.2f',@total_expenses) %>)</th>
       </tr>
     </thead>
-    <th>Net Profit</th>
-        <th>RM </th>
+    <th>Net Profit/Lose</th>
+        <th>RM <%= sprintf('%.2f',@net_profit_two) %></th>
       </tr>
     </thead>
 
