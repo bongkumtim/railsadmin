@@ -2,7 +2,6 @@ class ListsController < ApplicationController
   before_action :authenticate_user!, except: :welcome
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
-
   def welcome
   end
 

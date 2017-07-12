@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<h3>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -17,17 +17,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <h3><a class="navbar-brand" href="/index">MeLAB</a></h3>
+      <a class="navbar-brand" href="/index">MeLAB</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/index">Home</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account<span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
           <ul class="dropdown-menu">
-            <li><h3><%= link_to 'Start Account', accounts_path %></h3></li>
-            <li><h3><%= link_to 'Report', generate_path %></h3></li>
-            
+            <li><%= link_to 'Start Account', accounts_path %></li>
+            <li><%= link_to 'Full Report', generate_path %></li>
+            <li><%= link_to 'Balance Sheet', cash_ca_path %></li>
+            <li><%= link_to 'Profit & Loss', purchase_cos_path %></li>
           </ul>
         </li>
         <li> <%= link_to 'View Listing', showing_path %></li>
@@ -36,23 +37,20 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to('Edit registration', edit_user_registration_path) %> </li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      </ul> </h3><% end %>
+      </ul><% end %>
     </div>
   </div>
 </nav>
+
   <body>
     <%= yield %>
-      <br/>
-<div class="copy-right-main">
-    <div class="container">
-        <div class="copy-right">
-            <p>© 2017 All rights reserved | Design by  MeLAB Global Sdn Bhd</p>
-        </div>
-    
-    </div>
-</div>
   </body>
-
+      <br/>
+    <footer class="footer">
+      <div class="container">
+        <center><p class="text-muted">All Right Reserved | Design by MeLAB Global Sdn Bhd</p></center>
+      </div>
+    </footer>
 
 
 </html>
