@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.list_id = @list.id
+ 
 
     respond_to do |format|
       if @review.save

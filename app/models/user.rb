@@ -6,6 +6,13 @@ class User < ApplicationRecord
   has_many :lists
   has_many :reviews, dependent: :destroy
   has_many :accounts
+  has_many :offers
 
+  after_create :send_admin_mail
+
+  
+def send_admin_mail
+  UserMailer.send_welcome_email(self).deliver_later
+end
 
 end

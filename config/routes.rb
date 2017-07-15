@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :accounts
   devise_for :users
 
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   resources :lists do
   	resources :reviews, except: [:show, :index]
   end
+
+  resources :offers
   
   get '/index' => 'lists#index'
   get '/welcome' => 'lists#welcome'

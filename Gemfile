@@ -5,8 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+gem 'cancancan', '~> 2.0'
+gem 'rails_admin', '~> 1.2'
+gem 'remotipart', '~> 1.3', '>= 1.3.1'
 gem 'sendgrid-ruby'
-gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate', '~> 3.1'
 gem 'fog-google'
 gem 'google-api-client', '~> 0.8.6'
 gem 'mini_magick', '~> 4.7', '>= 4.7.1'

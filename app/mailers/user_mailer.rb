@@ -1,6 +1,6 @@
-class ApplicationMailer < ActionMailer::Base
-  default from: 'admin@melab.biz'
-  layout 'mailer'
+class UserMailer < ApplicationMailer
+	default from: 'admin@melab.biz'
+  	layout 'mailer'
 
     def send_welcome_email(user)
     @user = user

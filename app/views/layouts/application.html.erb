@@ -35,6 +35,9 @@
         <li> <%= link_to 'New List', new_list_path %> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user.superadmin? %>
+        <li><%= link_to 'Add Offer Admin only!!!', new_offer_path %></li>
+        <% end %>
         <li><%= link_to('Edit registration', edit_user_registration_path) %> </li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
       </ul><% end %>

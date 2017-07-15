@@ -1,5 +1,5 @@
 
-    <div class="container">
+<div class="container">
 <p id="notice"><%= notice %></p>
         <div class="row">
 
@@ -11,7 +11,7 @@
                     <a href="/" class="list-group-item">Total Sales : RM <%= sprintf('%.2f',@total_sales) %></a>
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-md-9">
 
                 <div class="row carousel-holder">
@@ -44,6 +44,39 @@
                     </div>
 
                 </div>
+                <% if current_user.superadmin? || current_user.merchant? %>
+                <p>Visible only for superadmins and merchant! </p>
+                                <br />
+                <div class="row">
+                  <% @offers.each do |offer| %>
+                    <div class="col-sm-12 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <%= image_tag (offer.image.url) if offer.image? %>
+                            <div class="caption">
+                                <h4>RM <%= sprintf('%.2f', offer.price) if offer.price? %></h4>
+                                <p><h4><%= link_to offer.title,offer %></h4></p>
+                                </h4>
+                                <p><%= truncate(offer.description, length:20, omission: '...(continued)') %></p>
+                            </div>                      
+                             
+                        </div>
+                    </div>
+                    <% end %>
+                </div>   
+                    <div class="col-sm-12 col-lg-4 col-md-4">
+                        <h4><a href="#">Need Help ??</a>
+                        </h4>
+                        <p>On how to list your products or use our simple yet powerful accounting application?<a target="_blank" href="#"> Click this tutorial</a> or call 012-7205562 (regarding speacial offer)</p>
+                        <a class="btn btn-primary" target="_blank" href="#">Special Offer</a>
+                    </div>
+
+               <%= will_paginate @lists %>
+
+            </div>
+
+        </div>
+    </div>
+<% else %>
                 <br />
                 <div class="row">
                   <% @lists.each do |list| %>
@@ -52,7 +85,7 @@
                             <%= image_tag (list.image.url) if list.image? %>
                             <div class="caption">
                                 <h4>RM <%= sprintf('%.2f', list.price) if list.price? %></h4>
-                                <p><h4>><%= link_to list.title,list %></h4></p>
+                                <p><h4><%= link_to list.title,list %></h4></p>
                                 </h4>
                                 <p><%= truncate(list.description, length:20, omission: '...(continued)') %></p>
                             </div>                      
@@ -73,5 +106,5 @@
             </div>
 
         </div>
-
+<% end %>
     </div>
