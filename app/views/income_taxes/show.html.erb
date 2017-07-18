@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <%= image_tag (@income.image.url),:size=> '800x300', :class=> "img-responsive" if @income.image?  %>
+                    <div class="caption-full">
+                        <h4 class="pull-right">RM <%= sprintf('%.2f', @income.amount) if @income.amount? %></h4>
+                        <h4><%= @income.title %></h4>
+                        <p><%= @income.created_at %></p>
+                        <p><%= @income.description %></p>                      
+                        <p><%= link_to 'Edit', edit_income_tax_path(@income) %> | <%= link_to 'Destroy', @income, method: :delete, data: { confirm: 'Are you sure?' } %></p>                     
+                        <p><%= link_to 'Back', income_path %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

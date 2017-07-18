@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script type="text/javascript">
+    <script type="text/javascript">
     (function(p,u,s,h){
         p._pcq=p._pcq||[];
         p._pcq.push(['_currentTime',Date.now()]);
@@ -17,7 +18,8 @@
         h=u.getElementsByTagName('script')[0];
         h.parentNode.insertBefore(s,h);
     })(window,document);
-</script>
+    </script>
+
   </head>
 
 <nav class="navbar navbar-inverse">
@@ -34,6 +36,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/index">Home</a></li>
+        <li><a href="/tutorial">Tutorial</a></li>
+        <li><a href="/income">Income Tax</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
           <ul class="dropdown-menu">

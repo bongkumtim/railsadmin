@@ -40,6 +40,9 @@ class ListsController < ApplicationController
   def edit
   end
 
+  def tutorial
+  end
+
   
   def create
     @list = current_user.lists.build(list_params)

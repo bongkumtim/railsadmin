@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :offers
+  resources :income_taxes
+
   
   get '/index' => 'lists#index'
   get '/welcome' => 'lists#welcome'
@@ -39,6 +41,6 @@ Rails.application.routes.draw do
   get '/asset_purchase_loan' => 'accounts#asset_purchase_loan'
   get '/showing' => 'lists#showing'
   get '/closing' => 'accounts#closing'
-
-
+  get '/tutorial' => 'lists#tutorial'
+  get 'income' => 'income_taxes#incometax'
 end

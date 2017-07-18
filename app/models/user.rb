@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :accounts, dependent: :destroy
   has_many :offers
+  has_many :income_taxes, dependent: :destroy
 
   after_create :send_admin_mail
 

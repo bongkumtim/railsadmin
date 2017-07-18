@@ -3,6 +3,7 @@ class UserMailer < ApplicationMailer
   	layout 'mailer'
 
     def send_welcome_email(user)
+    @url = "http://www.melab.biz"
     @user = user
     mail(:to => @user.email, :subject => "Welcome!")
   end

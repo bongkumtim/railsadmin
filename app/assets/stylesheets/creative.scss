@@ -15,6 +15,7 @@ h6 {
     font-weight: 700;
 }
 
+
 .topnav {
     font-size: 14px; 
 }
@@ -152,4 +153,13 @@ h6 {
     ul.banner-social-buttons > li:last-child {
         margin-bottom: 0;
     }
+}
+
+div.jumbotron {
+  background-image: url(../assets/calculation.jpg);
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
 }

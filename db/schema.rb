@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715074650) do
+ActiveRecord::Schema.define(version: 20170718053513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20170715074650) do
     t.string   "asset_purchase_bank_description"
     t.decimal  "asset_purchase_bank_amount",         precision: 12, scale: 2
     t.decimal  "closing_inventory",                  precision: 12, scale: 2
+  end
+
+  create_table "income_taxes", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "amount",      precision: 12, scale: 2
+    t.string   "description"
+    t.json     "image"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "user_id"
   end
 
   create_table "lists", force: :cascade do |t|
