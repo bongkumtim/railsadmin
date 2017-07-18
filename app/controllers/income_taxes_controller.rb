@@ -35,11 +35,11 @@ class IncomeTaxesController < ApplicationController
 	def update
 		respond_to do |format|
       if @income.update(income_params)
-        format.html { redirect_to @incometaxes, notice: 'Income Tax receipt was successfully updated.' }
-        format.json { render :show, status: :ok, location: @incometaxes }
+        format.html { redirect_to income_tax_path(@income), notice: 'Income Tax receipt was successfully updated.' }
+        format.json { render :show, status: :ok, location: income_path}
       else
         format.html { render :edit }
-        format.json { render json: @incometaxes.errors, status: :unprocessable_entity }
+        format.json { render json: income_path.errors, status: :unprocessable_entity }
       end
     end
 	end
