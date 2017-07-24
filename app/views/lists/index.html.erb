@@ -56,7 +56,6 @@
                                 <h4>RM <%= sprintf('%.2f', offer.price) if offer.price? %></h4>
                                 <p><h4><%= link_to offer.title,offer %></h4></p>
                                 </h4>
-                                <p><%= truncate(offer.description, length:20, omission: '...(continued)') %></p>
                             </div>                      
                              
                         </div>
@@ -87,7 +86,6 @@
                                 <h4>RM <%= sprintf('%.2f', list.price) if list.price? %></h4>
                                 <p><h4><%= link_to list.title,list %></h4></p>
                                 </h4>
-                                <p><%= truncate(list.description, length:20, omission: '...(continued)') %></p>
                             </div>                      
                              
                         </div>

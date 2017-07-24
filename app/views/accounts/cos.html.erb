@@ -16,7 +16,9 @@
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= number_to_currency(account.cash_purchase_amount) %><%= number_to_currency(account.credit_purchase_amount) %></td>
+        <td>
+        <%= link_to number_to_currency(account.cash_purchase_amount),account if account.cash_purchase_amount? %>
+        <%= link_to number_to_currency(account.credit_purchase_amount),account if account.credit_purchase_amount? %></td>
         <td><%= account.cash_purchase_description %><%= account.credit_purchase_description %></td>
         <% end %>
         <td><%= number_to_currency(@total_purchase) %></td>
@@ -44,7 +46,11 @@
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= number_to_currency(account.cash_collection_amount) %><%= number_to_currency(account.fpx_collection_amount) %><%= number_to_currency(account.card_collection_amount) %><%= number_to_currency(account.bank_transfer_amount) %></td>
+        <td>
+        <%= link_to number_to_currency(account.cash_collection_amount),account if account.cash_collection_amount? %>
+        <%= link_to number_to_currency(account.fpx_collection_amount),account if account.fpx_collection_amount? %>
+        <%= link_to number_to_currency(account.card_collection_amount),account if account.card_collection_amount? %>
+        <%= link_to number_to_currency(account.bank_transfer_amount),account if account.bank_transfer_amount? %></td>
         <td><%= (account.cash_collection_description) %><%= (account.card_collection_description) %><%= (account.bank_transfer_description) %><%= (account.fpx_collection_description) %></td>
         <% end %>
         <td><%= number_to_currency(@total_sales) %></td>

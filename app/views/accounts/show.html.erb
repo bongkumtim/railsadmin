@@ -1,124 +1,92 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <p id="notice"><%= notice %></p>
+  <h2> Details </h2>
+<div>
+  <%= number_to_currency(@account.opening_cash) if @account.opening_cash? %>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.opening_bank) if @account.opening_bank?%></p>
+  <p><%= @account.bank if @account.bank? %></p>
+</div>
+
+<div>
+<p><%= number_to_currency(@account.asset_purchase_cash_amount) if @account.asset_purchase_cash_amount? %></p>
+<p><%= @account.asset_purchase_cash_description if @account.asset_purchase_cash_description? %></p>
+</div>
+
+<div>
+<p><%= number_to_currency(@account.asset_purchase_bank_amount) if @account.asset_purchase_bank_amount? %></p>
+<p><%= @account.asset_purchase_bank_description if @account.asset_purchase_bank_description? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.cash_collection_amount) if @account.cash_collection_amount? %></p>
+  <p><%= @account.cash_collection_description if @account.cash_collection_description? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.cash_purchase_amount) if @account.cash_purchase_amount? %></p>
+  <p><%= @account.cash_purchase_description if @account.cash_purchase_description? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.credit_purchase_amount) if @account.credit_purchase_amount? %></p>
+  <p><%= @account.credit_purchase_description if @account.credit_purchase_description? %></p>
+</div>
 
 <p>
-  <strong>Opening cash:</strong>
-  <%= @account.opening_cash %>
+  <%= @account.creditor_name if @account.creditor_name? %>
+</p>
+
+<div>
+  <p><%= number_to_currency(@account.payment_creditor_cash_amount) if @account.payment_creditor_cash_amount? %></p>
+  <p><%= @account.payment_creditor_cash_description if @account.payment_creditor_cash_description? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.payment_creditor_bank_amount) if @account.payment_creditor_bank_amount? %></p>
+  <p><%= @account.payment_creditor_bank_description if @account.payment_creditor_bank_description? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.card_collection_amount) if @account.card_collection_amount? %></p>
+  <p><%= @account.card_collection_description if @account.card_collection_description? %></p>
+</div>
+
+<p>
+  <%= @account.card_charges if @account.card_charges? %>
+</p>
+
+<div>
+  <p><%= number_to_currency(@account.recurring_payment_bank_amount) if @account.recurring_payment_bank_amount? %></p>
+  <p><%= (@account.recurring_payment_bank) if @account.recurring_payment_bank? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.recurring_payment_amount) if @account.recurring_payment_amount? %></p>
+  <p><%= (@account.recurring_payment) if @account.recurring_payment? %></p>
+</div>
+
+
+<div>
+  <p><%= number_to_currency(@account.bank_transfer_amount) if @account.bank_transfer_amount? %></p>
+  <p><%= @account.bank_transfer_description if @account.bank_transfer_description? %></p>
+</div>
+
+<div>
+  <p><%= number_to_currency(@account.fpx_collection_amount) if @account.fpx_collection_amount? %></p>
+  <p><%= @account.fpx_collection_description if @account.fpx_collection_description? %></p>
+</div>
+
+<p>
+  <%= @account.fpx_charges if @account.fpx_charges? %>
 </p>
 
 <p>
-  <strong>Opening bank:</strong>
-  <%= @account.opening_bank %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @account.user_id %>
-</p>
-
-<p>
-  <strong>Bank:</strong>
-  <%= @account.bank %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@account.image.medium) if @account.image? %>
-</p>
-
-<p>
-  <strong>Cash collection amount:</strong>
-  <%= @account.cash_collection_amount %>
-</p>
-
-<p>
-  <strong>Cash collection description:</strong>
-  <%= @account.cash_collection_description %>
-</p>
-
-<p>
-  <strong>Cash purchase amount:</strong>
-  <%= @account.cash_purchase_amount %>
-</p>
-
-<p>
-  <strong>Cash purchase description:</strong>
-  <%= @account.cash_purchase_description %>
-</p>
-
-<p>
-  <strong>Credit purchase amount:</strong>
-  <%= @account.credit_purchase_amount %>
-</p>
-
-<p>
-  <strong>Credit purchase description:</strong>
-  <%= @account.credit_purchase_description %>
-</p>
-
-<p>
-  <strong>Creditor name:</strong>
-  <%= @account.creditor_name %>
-</p>
-
-<p>
-  <strong>Payment creditor cash amount:</strong>
-  <%= @account.payment_creditor_cash_amount %>
-</p>
-
-<p>
-  <strong>Payment creditor cash description:</strong>
-  <%= @account.payment_creditor_cash_description %>
-</p>
-
-<p>
-  <strong>Payment creditor bank amount:</strong>
-  <%= @account.payment_creditor_bank_amount %>
-</p>
-
-<p>
-  <strong>Payment creditor bank description:</strong>
-  <%= @account.payment_creditor_bank_description %>
-</p>
-
-<p>
-  <strong>Card collection amount:</strong>
-  <%= @account.card_collection_amount %>
-</p>
-
-<p>
-  <strong>Card collection description:</strong>
-  <%= @account.card_collection_description %>
-</p>
-
-<p>
-  <strong>Card charges:</strong>
-  <%= @account.card_charges %>
-</p>
-
-<p>
-  <strong>Bank transfer amount:</strong>
-  <%= @account.bank_transfer_amount %>
-</p>
-
-<p>
-  <strong>Bank transfer description:</strong>
-  <%= @account.bank_transfer_description %>
-</p>
-
-<p>
-  <strong>Fpx collection amount:</strong>
-  <%= @account.fpx_collection_amount %>
-</p>
-
-<p>
-  <strong>Fpx collection description:</strong>
-  <%= @account.fpx_collection_description %>
-</p>
-
-<p>
-  <strong>Fpx charges:</strong>
-  <%= @account.fpx_charges %>
+  <%= image_tag(@account.image.url,:size => "600x800") if @account.image? %>
 </p>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
+</div>

@@ -18,9 +18,11 @@
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= number_to_currency(account.payment_creditor_cash_amount) %><%= number_to_currency(account.payment_creditor_bank_amount) %></td>
+        <td>
+        <%= link_to number_to_currency(account.payment_creditor_cash_amount),account if account.payment_creditor_cash_amount? %>
+        <%= link_to number_to_currency(account.payment_creditor_bank_amount),account if account.payment_creditor_bank_amount? %></td>
         <td><%= account.payment_creditor_cash_description %><%= account.payment_creditor_bank_description %></td>
-        <td><%= number_to_currency(account.credit_purchase_amount) %></td>
+        <td><%= link_to number_to_currency(account.credit_purchase_amount),account if account.credit_purchase_amount? %></td>
         <td><%= account.credit_purchase_description %></td>
         <% end %>
         <td><%= number_to_currency(@total_trade) %></td>

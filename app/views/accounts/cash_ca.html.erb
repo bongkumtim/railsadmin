@@ -19,11 +19,21 @@
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= number_to_currency(account.opening_cash) %></td>
-        <td><%= number_to_currency(account.cash_collection_amount) %></td>
+        <td><%= link_to number_to_currency(account.opening_cash),account if account.opening_cash? %></td>
+        <td><%= link_to number_to_currency(account.cash_collection_amount),account if account.cash_collection_amount? %></td>
         <td><%= account.open_cash_description %><%= account.cash_collection_description %></td>
-        <td><%= number_to_currency(account.cash_purchase_amount) %><%= number_to_currency(account.payment_creditor_cash_amount) %> <%= number_to_currency(account.recurring_payment_amount) %><%= number_to_currency(account.asset_purchase_cash_amount) %></td>
-        <td><%= (account.cash_purchase_description)%><%= account.payment_creditor_cash_description %><%= account.recurring_payment %><%= account.asset_purchase_cash_description %></td>
+        <td>
+        <%= link_to number_to_currency(account.cash_purchase_amount),account if account.cash_purchase_amount? %>
+        <%= link_to number_to_currency(account.payment_creditor_cash_amount),account if account.payment_creditor_cash_amount? %>
+        <%= link_to number_to_currency(account.recurring_payment_amount),account if account.recurring_payment_amount? %>
+        <%= link_to number_to_currency(account.asset_purchase_cash_amount), account if account.asset_purchase_cash_amount? %>
+        </td>
+        <td>
+        <%= (account.cash_purchase_description)%>
+        <%= account.payment_creditor_cash_description %>
+        <%= account.recurring_payment %>
+        <%= account.asset_purchase_cash_description %>
+        </td>
         <% end %>
         <td><%= number_to_currency(@total_cash) %></td>
       </tr>
@@ -54,11 +64,24 @@
     <tbody>
       <tr>
         <td><%= account.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= number_to_currency(account.opening_bank) %></td>
-        <td><%= number_to_currency(account.bank_transfer_amount) %><%= number_to_currency(account.fpx_collection_amount) %><%= number_to_currency(account.card_collection_amount) %></td>
-        <td><%= account.bank %><%= (account.bank_transfer_description) %><%= (account.fpx_collection_description) %><%= (account.card_collection_description) %></td>
-        <td><%= number_to_currency(account.payment_creditor_bank_amount) %><%= number_to_currency(account.recurring_payment_bank_amount) %><%= number_to_currency(account.asset_purchase_bank_amount) %></td>
-        <td><%= (account.payment_creditor_bank_description) %><%= (account.recurring_payment_bank) %> <%= account.asset_purchase_bank_description %></td>
+        <td><%= link_to number_to_currency(account.opening_bank),account if account.opening_bank? %></td>
+        <td>
+        <%= link_to number_to_currency(account.bank_transfer_amount),account if account.bank_transfer_amount? %>
+        <%= link_to number_to_currency(account.fpx_collection_amount),account if account.fpx_collection_amount?  %>
+        <%= link_to number_to_currency(account.card_collection_amount),account if account.card_collection_amount? %>
+        </td>
+        <td>
+        <%= account.bank %>
+        <%= (account.bank_transfer_description) %>
+        <%= (account.fpx_collection_description) %>
+        <%= (account.card_collection_description) %></td>
+        <td>
+        <%= link_to number_to_currency(account.payment_creditor_bank_amount),account if account.payment_creditor_bank_amount?  %>
+        <%= link_to number_to_currency(account.recurring_payment_bank_amount),account if account.recurring_payment_bank_amount?  %>
+        <%= link_to number_to_currency(account.asset_purchase_bank_amount),account if account.asset_purchase_bank_amount?  %>
+        </td>
+        <td><%= (account.payment_creditor_bank_description) %>
+        <%= (account.recurring_payment_bank) %> <%= account.asset_purchase_bank_description %></td>
         <% end %>
         <td><%= number_to_currency(@total_bank) %></td>
       </tr>
