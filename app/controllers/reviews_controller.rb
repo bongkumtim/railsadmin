@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.list_id = @list.id
  
-
+    
     respond_to do |format|
       if @review.save
         format.html { redirect_to @list, notice: 'Review was successfully created.' }

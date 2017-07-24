@@ -10,7 +10,7 @@
                         <p><%= @offer.description.html_safe %></p>
 
                         <% if current_user == @offer.user %>
-                        <p><%= link_to 'Edit', edit_list_path(@offer) %> | <%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                        <p><%= link_to 'Edit', edit_offer_path(@offer) %> | <%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %></p>
                         <% else %>
                         <p><%= link_to 'Back', lists_path %></p>
                         <% end %>

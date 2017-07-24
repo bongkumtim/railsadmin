@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_offer, only: [:show,:edit, :update, :destroy]
+	before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
 	def show
 	end
@@ -28,7 +28,7 @@ class OffersController < ApplicationController
 
 	def update
 		respond_to do |format|
-      if @offer.update(review_params)
+      if @offer.update(offer_params)
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
