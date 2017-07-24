@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :offers
+
   resources :income_taxes
 
   

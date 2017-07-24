@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'tinymce-rails', '~> 4.3', '>= 4.3.13'
 gem 'cancancan', '~> 2.0'
 gem 'rails_admin', '~> 1.2'
 gem 'remotipart', '~> 1.3', '>= 1.3.1'

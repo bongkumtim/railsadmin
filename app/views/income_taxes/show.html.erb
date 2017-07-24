@@ -11,7 +11,7 @@
                         <h4><%= @income.title %></h4>
                         <p><%= @income.created_at %></p>
                         <p><%= @income.description %></p>                      
-                        <p><%= link_to 'Edit', edit_income_tax_path(@income) %> | <%= link_to 'Destroy', @income, method: :delete, data: { confirm: 'Are you sure?' } %></p>                     
+                        <p><%= link_to 'Edit', edit_income_tax_path(@income) %> | <%= link_to 'Delete', @income, method: :delete, data: { confirm: 'Are you sure?' } %></p>                     
                         <p><%= link_to 'Back', income_path %></p>
                     </div>
                 </div>

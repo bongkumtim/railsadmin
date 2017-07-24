@@ -7,7 +7,7 @@
                         <h4 class="pull-right">RM <%= sprintf('%.2f', @offer.price) if @offer.price? %></h4>
                         <h4><%= @offer.title %>
                         </h4>
-                        <p><%= @offer.description %></p>
+                        <p><%= @offer.description.html_safe %></p>
 
                         <% if current_user == @offer.user %>
                         <p><%= link_to 'Edit', edit_list_path(@offer) %> | <%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %></p>
@@ -18,3 +18,4 @@
                 </div>
 </div>
 </div>
+<%= tinymce %>

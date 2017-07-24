@@ -1,3 +1,4 @@
+<%= tinymce %>
 <p id="notice"><%= notice %></p>
     <div class="container">
 
@@ -18,10 +19,10 @@
                         <h4 class="pull-right">RM <%= sprintf('%.2f', @list.price) if @list.price? %></h4>
                         <h4><%= @list.title %>
                         </h4>
-                        <p><%= @list.description %></p>
+                        <p><%= @list.description.html_safe %></p>
 
                         <% if current_user == @list.user %>
-                        <p><%= link_to 'Edit', edit_list_path(@list) %> | <%= link_to 'Destroy', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                        <p><%= link_to 'Edit', edit_list_path(@list) %> | <%= link_to 'Delete', @list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
                         <% else %>
                         <p><%= link_to 'Back', lists_path %></p>
                         <% end %>
@@ -52,7 +53,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="star-rating" data-score= <%= review.rating %>></div>
-                            <p><%= review.comment %></p>
+                            <p><%= review.comment.html_safe %></p>
                         </div>
                     </div>
 
@@ -78,5 +79,6 @@
     }
   });
 </script>
+<%= tinymce %>
 
 

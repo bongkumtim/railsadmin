@@ -14,7 +14,9 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require tinymce-jquery
 //= require_tree .
+
 
 (function($) {
     "use strict"; // Start of use strict

@@ -7,7 +7,7 @@
 
 <p>
   <strong>Comment:</strong>
-  <%= @review.comment %>
+  <%= @review.comment.html_safe %>
 </p>
 
 <p>
@@ -17,3 +17,4 @@
 
 <%= link_to 'Edit', '#' %> |
 <%= link_to 'Back', '#' %>
+<%= tinymce %>
