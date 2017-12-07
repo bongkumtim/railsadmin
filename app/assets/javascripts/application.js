@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require tinymce-jquery
+//= require google_analytic.js.coffee
 //= require_tree .
 
 
