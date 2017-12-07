@@ -7,7 +7,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script type="text/javascript">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110849911-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-110849911-1');
+      </script>
+  <script type="text/javascript">
+  
     (function(p,u,s,h){
         p._pcq=p._pcq||[];
         p._pcq.push(['_currentTime',Date.now()]);

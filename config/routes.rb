@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :accounts
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   authenticated :user do
   	root 'lists#index', as: "authenticated_root"
